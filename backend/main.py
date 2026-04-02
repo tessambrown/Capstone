@@ -21,7 +21,7 @@ app = Flask(__name__)
 registerErrorHandlers(app)
 
 CORS(app)
-CORS(app, origins=["http://[::]:5050"])
+# CORS(app, origins=["http://[::]:5050"])
 
 @app.route("/personlization", methods=["POST"])
 def personlization():
