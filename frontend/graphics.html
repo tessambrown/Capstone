@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Graphics page</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="assets/favi.png">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/pages/graphics.css">
+    </head>
+    <body data-page="graphics">
+
+        <section class="page-grid">
+
+            <div class="nav-styles start-1 col-1">
+                <a href="index.html" class="logo start-1 col-1">
+                    <img src="assets/darkChromeGuy.png" alt="ChromeWav logo" width="80" height="82"  class="logo-chrome-guy">
+                </a>
+
+                <a href="selection.html" class="back-button secondary-back-button start-1 col-1">
+                    <img src="assets/back.png" alt="Back arrow" height="12" width="18" class="back-arrow default-arrow">
+                    <img src="assets/white back.png" alt="Back arrow hover" height="12" width="18" class="back-arrow hover-arrow"> 
+                    Back
+                </a>
+            </div>
+
+            <div class="left-panel start-2 col-7">
+                <div id="imageContainer"></div>
+            </div>
+
+
+            <div class="right-panel start-9 col-4">
+                <p class="font-dropdown-title">Select a font</p>
+                <div class="font-dropdown">
+                    <button class="font-dropdown-header tertiary-button " id="fontDropdownBtn">
+                        <img src="assets/Expand Arrow.png" alt="dropdown expand arrow" class="chevron">
+                        <span class="font-label">Fonts</span>
+                    </button>
+
+                    <div class="font-options" id="fontOptions">
+                        <div class="font-option" data-font="Nova Sans">Blocky</div>
+                        <div class="font-option" data-font="Astro Sans">Playful</div>
+                        <div class="font-option" data-font="futura">Modern</div>
+                        <div class="font-option" data-font="bebas">Condensed</div>
+                        <div class="font-option" data-font="ethic-new">Elegant</div>
+                        <div class="font-option" data-font="delicate">Delicate</div>
+                        <div class="font-option" data-font="bubble">Bubble</div>
+                        <div class="font-option" data-font="midstar">Retro</div>
+                        <div class="font-option" data-font="typewriter">Typewriter</div>
+                        <div class="font-option" data-font="boxing">Western</div>
+                        <div class="font-option" data-font="blackletter">Medieval</div>
+                        <div class="font-option" data-font="neocosmic">Futuristic</div>
+                        <div class="font-option" data-font="pyrite">Sharp</div>
+                    </div>
+                </div>
+
+                <p class="lyric-container-title">Select lyrics to display</p>
+                <div id="lyricsContainer" style="height: 300px; overflow-y: scroll;"></div>
+                <div class="lyric-error" id="lyric-error" hidden>
+                    <img src="assets/red star.png" height="16px" width="16px">
+                    <p class="error-msg">Please select lyrics</p>
+                </div>
+
+                <button class="tertiary-button clear-lyric-button" id="clearLyricsBtn">Clear lyrics</button>
+                <div class="clear-lyric-error" id="clear-lyric-error" hidden>
+                    <img src="assets/red star.png" height="16px" width="16px">
+                    <p class="error-msg">Please select lyrics</p>
+                </div>
+
+                <p class="position-grid-title">Location of the lyrics</p>
+                <div id="positionGrid">
+                    <button data-pos="top-left" class="top-left"></button>
+                    <button data-pos="top-center"></button>
+                    <button data-pos="top-right" class="top-right"></button>
+
+                    <button data-pos="middle-left"></button>
+                    <button data-pos="center"></button>
+                    <button data-pos="middle-right"></button>
+
+                    <button data-pos="bottom-left" class="bottom-left"></button>
+                    <button data-pos="bottom-center"></button>
+                    <button data-pos="bottom-right" class="bottom-right"></button>
+
+                </div>
+                <div class="grid-full-error" id="grid-full-error" hidden>
+                    <img src="assets/red star.png" height="16px" width="16px">
+                    <p class="error-msg">No free space available, please clear lyrics first</p>
+                </div>
+                <div class="position-full-error" id="position-full-error" hidden>
+                    <img src="assets/red star.png" height="16px" width="16px">
+                    <p class="error-msg">Please choose a different location that cell already has lyrics</p>
+                </div>
+
+                <label class="toggle-wrapper">
+                    <p class="cell-toggle-label">Keep lyrics within grid cell</p>
+                    <label class="switch">
+                        <input type="checkbox" id="singleCellToggle">
+                        <span class="toggle"></span>
+                    </label>
+                </label>
+                <div class="single-cell-error" id="single-cell-error" hidden>
+                    <img src="assets/red star.png" height="16px" width="16px">
+                    <p class="error-msg">Lyrics are already in one cell</p>
+                </div> 
+
+                <p class="text-size-label">Text size</p>
+                <div class="slider-icons">
+                    <img src="assets/minus.png" alt="minus text size icon" width="16px" class="text-minus-icon">
+                    <img src="assets/plus.png" alt="plus text size icon" width="16px" class="text-plus-icon">
+                </div>
+                <input type="range" id="fontSizeSlider" class="slider" min="12" max="96" value="24" step="2">
+
+
+                <p class="line-spacing-label">Line spacing</p>
+                <div class="slider-icons">
+                    <img src="assets/minus.png" alt="minus text size icon" width="16px" class="line-minus-icon">
+                    <img src="assets/plus.png" alt="plus text size icon" width="16px" class="line-plus-icon">
+                </div>
+                <input type="range" id="lineHeightSlider" class="slider" min="7" max="30" step="1" value="15"/>
+                
+                <p class="case-control-label">Text case style</p>
+                <div class="case-controls" id="caseControls">
+                    <button type="button" id="caseUpper" class="tertiary-button">AG</button>
+                    <button type="button" id="caseLower" class="tertiary-button">ag</button>
+                    <button type="button" id="caseDefault" class="tertiary-button">Ag</button>
+                </div>
+
+                <p class="alignment-controls-label">Text alignment</p>
+                <div class="alignment-controls" id="alignmentControls">
+                    <button type="button" id="alignLeft" class="tertiary-button">
+                        <img src="assets/left.png" alt="left align icon" class="align-btn-image">
+                    </button>
+                    <button type="button" id="alignCenter" class="tertiary-button">
+                        <img src="assets/center.png" alt="center align icon" class="align-btn-image">
+                    </button>
+                    <button type="button" id="alignRight" class="tertiary-button">
+                        <img src="assets/right.png" alt="right align icon" class="align-btn-image">
+                    </button>
+                </div>
+
+                <p class="rotate-text-label">Rotate text</p>
+                <div class="rotate-icons">
+                    <img src="assets/left rotation.png" alt="left text rotation icon" width="16px" class="left-rotation-icon">
+                    <img src="assets/right rotation.png" alt="right text rotation icon" width="16px" class="right-rotation-icon">
+                </div>
+                <input type="range" id="rotationSlider" class="slider" min="-180" max="180" step="45" value="0"/>
+
+                <label for="textColorControls" class="text-color-controls-label">Text color</label>
+                <div id="textColorControls" class="text-color-controls">
+                    <button class="text-color" data-color="#000000" style="background: #000000"></button>
+                    <button class="text-color" data-color="#ffffff" style="background: #ffffff"></button>
+                    <button class="text-color" data-color="#61110c" style="background: #61110c"></button>
+                    <button class="text-color" data-color="#ed1b32" style="background: #ed1b32"></button>
+                    <button class="text-color" data-color="#f399c1" style="background: #f399c1"></button>
+                    <button class="text-color" data-color="#d04227" style="background: #d04227"></button>
+                    <button class="text-color" data-color="#f58454" style="background: #f58454"></button>
+                    <button class="text-color" data-color="#ffcd05" style="background: #ffcd05"></button>
+                    <button class="text-color" data-color="#fae171" style="background: #fae171"></button>
+                    <button class="text-color" data-color="#23572b" style="background: #23572b"></button>
+                    <button class="text-color" data-color="#c5dd7f" style="background: #c5dd7f"></button>
+                    <button class="text-color" data-color="#4a59a7" style="background: #4a59a7"></button>
+                    <button class="text-color" data-color="#b1e0e9" style="background: #b1e0e9"></button>
+                    <button class="text-color" data-color="#763494" style="background: #763494"></button>
+                    <button class="text-color" data-color="#a984bc" style="background: #a984bc"></button>
+                </div>
+
+                <p class="opacity-slider-label">Text opacity</p>
+                <div class="slider-icons">
+                    <img src="assets/minus.png" alt="minus text size icon" width="16px" class="opacity-minus-icon">
+                    <img src="assets/plus.png" alt="plus text size icon" width="16px" class="opacity-plus-icon">
+                </div>
+                <input type="range" id="opacitySlider" class="slider" min="0" max="1" step="0.05" value="1">
+
+                <label class="toggle-wrapper">
+                    <p class="name-toggle-label">Show text outline</p>
+                    <label class="switch">
+                        <input type="checkbox" id="strokeToggle">
+                        <span class="toggle"></span>
+                    </label>
+                </label> 
+
+                <div id="strokeControls" class="stroke-controls-wrapper" style="display: none;">
+                    <p class="stroke-slider-label">Outline weight</p>
+                    <div class="slider-icons">
+                        <img src="assets/minus.png" alt="minus text size icon" width="16px" class="stroke-minus-icon">
+                        <img src="assets/plus.png" alt="plus text size icon" width="16px" class="stroke-plus-icon">
+                    </div>
+                    <input type="range" id="strokeSlider" class="slider" min="0" max="10" step="0.5" value="0"/>
+
+                    <p class="stroke-color-controls-label">Outline color</p>
+                    <div id="strokeColorControls" class="stroke-color-controls">
+                        <button class="stroke-color" data-color="#000000" style="background: #000000"></button>
+                        <button class="stroke-color" data-color="#ffffff" style="background: #ffffff"></button>
+                        <button class="stroke-color" data-color="#61110c" style="background: #61110c"></button>
+                        <button class="stroke-color" data-color="#ed1b32" style="background: #ed1b32"></button>
+                        <button class="stroke-color" data-color="#f399c1" style="background: #f399c1"></button>
+                        <button class="stroke-color" data-color="#d04227" style="background: #d04227"></button>
+                        <button class="stroke-color" data-color="#f58454" style="background: #f58454"></button>
+                        <button class="stroke-color" data-color="#ffcd05" style="background: #ffcd05"></button>
+                        <button class="stroke-color" data-color="#fae171" style="background: #fae171"></button>
+                        <button class="stroke-color" data-color="#23572b" style="background: #23572b"></button>
+                        <button class="stroke-color" data-color="#c5dd7f" style="background: #c5dd7f"></button>
+                        <button class="stroke-color" data-color="#4a59a7" style="background: #4a59a7"></button>
+                        <button class="stroke-color" data-color="#b1e0e9" style="background: #b1e0e9"></button>
+                        <button class="stroke-color" data-color="#763494" style="background: #763494"></button>
+                        <button class="stroke-color" data-color="#a984bc" style="background: #a984bc"></button>
+                    </div>
+
+                    <p class="stroke-opacity-label">Outline opacity</p>
+                    <div class="slider-icons">
+                        <img src="assets/minus.png" alt="minus text size icon" width="16px" class="stroke-opacity-minus-icon">
+                        <img src="assets/plus.png" alt="plus text size icon" width="16px" class="stroke-opacity-plus-icon">
+                    </div>
+                    <input type="range" id="strokeOpacitySlider" class="slider" min="0" max="1" step="0.05" value="1"/>
+                </div>
+
+                <p class="image-opacity-label">Image opacity</p>
+                <div class="slider-icons">
+                    <img src="assets/minus.png" alt="minus text size icon" width="16px" class="image-minus-icon">
+                    <img src="assets/plus.png" alt="plus text size icon" width="16px" class="image-plus-icon">
+                </div>
+                <input type="range" id="imageOpacitySlider" class="slider" min="0" max="1" step="0.05" value="1"/>
+
+                <label class="toggle-wrapper">
+                    <p class="name-toggle-label">Show artist and song name</p>
+                    <label class="switch">
+                        <input type="checkbox" id="nameToggle" checked>
+                        <span class="toggle"></span>
+                    </label>
+                </label> 
+
+                <button type="button" id="downloadBtn" class="primary-button download-button">Download PNG</button>
+            </div>
+        </section>
+        
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script type="module" src="js/script.js"></script>
+    </body>
+</html>

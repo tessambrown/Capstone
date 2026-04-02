@@ -1,0 +1,362 @@
+/* Compenent styles: buttons, sliders, inputs */
+
+/* BUTTON STYLES! */
+
+/* primary button */
+.primary-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px 8px;
+
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+
+    /* add font when I add font family */
+    font-family: var(--font-secondary);
+    font-size: var(--text-xs);
+    text-align: center;
+
+    text-decoration: none;
+    color: white;
+    background-color: var(--dark-purple);
+
+    box-shadow: 2px 3px 0 #000;
+
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    color: #000;
+    background-color: var(--medium-purple);
+}
+
+/* secondary button */
+.secondary-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px;
+
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+
+    /* add font when I add font family */
+    font-family: var(--font-secondary);
+    font-size: var(--text-xs);
+
+    text-decoration: none;
+    color: black;
+    background-color: var(--medium-purple);
+
+    box-shadow: 2px 3px 0 #000;
+
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    color: white;
+    background-color: var(--dark-purple);
+}
+
+/* back button secondary styles */
+.secondary-back-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px;
+
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+
+    /* add font when I add font family */
+    font-family: var(--font-secondary);
+    font-size: var(--text-xs);
+
+    text-decoration: none;
+    color: black;
+    background-color: var(--medium-purple);
+
+    box-shadow: 2px 3px 0 #000;
+
+    cursor: pointer;
+}
+
+.hover-arrow {
+    display: none;
+}
+
+.secondary-back-button:hover .default-arrow {
+    display: none;
+}
+
+.secondary-back-button:hover .hover-arrow {
+    display: inline;
+}
+
+.secondary-back-button:hover {
+    color: white;
+    background-color: var(--dark-purple);
+}
+
+/* tertiary button for canvas */
+.tertiary-button-canvas {
+    display: inline-flex;
+    /* justify-content: left;
+    align-items: left; */
+
+    /* padding: 16px; */
+    padding: 10px 16px;
+
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+
+    font-family: var(--font-secondary);
+    font-size: var(--text-xs);
+
+    text-decoration: none;
+    color: black;
+    background-color: white;
+
+    box-shadow: 2px 3px 0 #000;
+
+    cursor: pointer;
+}
+
+.tertiary-button-canvas:hover {
+    color: black;
+    background-color: var(--medium-purple);
+}
+
+.tertiary-button-canvas.selected {
+    color: white;
+    background-color: var(--dark-purple);
+    box-shadow: 1px 1px 0 #000;
+}
+
+.tertiary-button-canvas[aria-pressed="true"] {
+    color: white;
+    background-color: var(--dark-purple);
+    box-shadow: 1px 1px 0 #000;
+}
+
+/* tertiary button */
+.tertiary-button {
+    display: inline-flex;
+    /* justify-content: left;
+    align-items: left; */
+
+    /* padding: 16px; */
+    padding: 16px;
+
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+
+    font-family: var(--font-secondary);
+    font-size: var(--text-xs);
+
+    text-decoration: none;
+    color: black;
+    background-color: white;
+
+    box-shadow: 2px 3px 0 #000;
+
+    cursor: pointer;
+}
+
+.tertiary-button:hover {
+    color: black;
+    background-color: var(--medium-purple);
+}
+
+
+/* INPUT STYLES */
+.input {
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+    padding: 16px;
+
+    font-family: var(--font-secondary);
+    font-size: var(--text-xs);
+
+    box-shadow: 2px 3px 0 #000;
+}
+
+.input:focus {
+    outline: none;
+}
+
+/* SLIDER STYLES */
+/* input sliders on the graphics page */
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3px;
+    background: black;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  appearance: none;
+  width: 22px; 
+  height: 22px; 
+  border-radius: 50%;
+  background: black;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+/* TOGGLE STYLES */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 48px;
+    height: 28px;
+}
+/* hide default style */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* toggle track */
+.toggle {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: var(--border-radius);
+}
+
+/* toggle knob */
+.toggle::before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* switched state */
+.switch input:checked + .toggle {
+    background-color: var(--dark-purple);
+}
+
+.switch input:checked + .toggle::before {
+    transform: translateX(20px);
+}
+
+.font-dropdown {
+    display: inline-flex;
+    flex-direction: column;
+
+    background: white;
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+    overflow: hidden;
+    box-shadow: 1px 1px 0 #000;
+}
+
+/* dropdown header style*/
+.font-dropdown-header {
+    border: none;
+    background: none;
+
+    text-align: left;
+    padding: 12px 16px;
+    width: 100%;
+
+    cursor: pointer;
+}
+
+.font-dropdown .tertiary-button {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+
+/* dropdown container */
+.font-options {
+    display: none;
+    flex-direction: column;
+}
+
+.font-option {
+
+  border: none;
+  background: none;
+
+  text-align: left;
+
+  font-size: var(--text-xs);
+  color: black;
+  
+  padding: 8px 16px;
+  width: 100%;
+
+  box-sizing: border-box;
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.font-option:hover {
+    color: black;
+    background-color: var(--medium-purple);
+}
+
+/* .font-dropdown.open .font-options {
+  display: flex;
+} */
+.font-dropdown.open .font-options {
+    display: flex;
+}
+
+
+/* DROPDOWN CHEVRON STYLES */
+.chevron {
+    transition: transform .2s;
+}
+
+/* flip up when the dropdown opens */
+.font-dropdown.open .chevron {
+  transform: rotate(180deg);
+}
+
+/* LOADING BAR STYLES */
+.progress-bar-track {
+    width: 784px;
+    height: 16px;
+    background: var(--light-purple);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: var(--border-radius);
+    background: var(--dark-purple);
+    transition: width 1s linear;
+}

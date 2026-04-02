@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slection page</title>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="assets/favi.png">
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/layout.css">
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/pages/selection.css">
+        <link rel="stylesheet" href="css/pages/loading.css">
+        <link rel="stylesheet" href="css/pages/error.css">
+        <link rel="stylesheet" href="css/pages/confirmation.css">
+    </head>
+    <body data-page="selection">
+
+        <section class="page-grid">
+
+            <a href="index.html" class="logo col-12">
+                <h2 class="wordmark">ChromeWav</h2>
+            </a>
+
+            <a href="index.html" class="back-button secondary-back-button start-1 col-1">
+                <img src="assets/back.png" alt="Back Arrow" height="12" width="18" class="back-arrow default-arrow">
+                <img src="assets/white back.png" alt="Back arrow hover" height="12" width="18" class="back-arrow hover-arrow">
+                Back
+            </a>
+
+            <img src="assets/chromeGuy.svg" alt="Chrome Guy" height="572" width="556" class="chrome-guy">
+
+            <h1 class="selection-title col-12">
+                ChromeWav
+            </h1>
+
+            <div class="center-panel-selection start-2 col-10">
+                <!-- input stack -->
+                <div class="input-section start-1 col-5">
+                    <p class="input-song-title">Input song</p>
+                    <input type="text" class="input start-1 col-5" id="songInput" placeholder="Song" autocomplete="off">
+                    <div class="song-error" id="song-error" hidden>
+                        <img src="assets/red star.png" height="16px" width="16px">
+                        <p class="error-msg">Please enter a song</p>
+                    </div>
+
+                    <p class="input-artist-title">Input artist</p>
+                    <input type="text" class="input start-1 col-5" id="artistInput" placeholder="Artist" class="primary-input" autocomplete="off">
+                    <div class="artist-error" id="artist-error" hidden>
+                        <img src="assets/red star.png" height="16px" width="16px">
+                        <p class="error-msg">Please enter an artist</p>
+                    </div>
+                </div>
+
+                <!-- record! -->
+                <img src="assets/record.png" alt="Record" width="159px" class="record start-6 col-2">
+
+                <!-- canvas options -->
+                <div class="canvas-section start-8 col-5">
+                    <div class="canvas-options">
+                        <p class="canvas-sizes-title">Canvas sizes</p>
+                        <button class="canvas-btn phone tertiary-button-canvas" value="phone_screen">
+                            <img src="assets/iphone.png" alt="phone icon" class="btn-icon">
+                            Phone: 1290 x 2796px
+                        </button>
+                        <button class="canvas-btn phone tertiary-button-canvas" value="phone">
+                            <img src="assets/iphoto.png" alt="phone photo icon" class="btn-icon">
+                            Phone: 1080 x 1350px
+                        </button>
+                        <button class="canvas-btn poster tertiary-button-canvas" value="poster">
+                            <img src="assets/poster.png" alt="poster icon" class="poster-btn-icon">
+                            Poster: 8.5 x 11in
+                        </button>
+                        <div class="canvas-error" id="canvas-error" hidden>
+                            <img src="assets/red star.png" height="16px" width="16px">
+                            <p class="error-msg">Please choose a canvas size</p>
+                        </div>
+                    </div>
+                </div> 
+
+                <button class="generate-button primary-button start-5 col-4" id="generateBtn">Generate design</button>
+            </div>
+        </section>
+
+        <!-- loading page overlay -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="loading-layout">
+                <video width="516" height="528" class="loading-chrome-guy col-12" autoplay loop muted>
+                    <source src="assets/chromeGuyBody.mp4" type="video/mp4">
+                </video> 
+                <h2 class="loading-header col-12">Generating your creation...</h2>
+                <div class="progress-bar-track start-3 col-8">
+                    <div class="progress-bar-fill" id="progressBarFill"></div>
+                </div>
+                <p class="loading-time col-12">This can take up to a minute</p>
+            </div>
+        </div> 
+
+        <script type="module" src="js/script.js"></script>
+    </body>
+</html>

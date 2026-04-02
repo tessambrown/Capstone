@@ -1,0 +1,72 @@
+/* CREATE OVERLAY STYLES */
+#confirmation-banner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+    z-index: 9999;
+    /* overflow-y: auto; */
+}
+
+/* ADD A GRID TO OVERLAY */
+.confirmation-layout{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    align-content: center;
+
+    min-height: 100%;
+    padding-left: 74px;
+    padding-right: 74px;
+
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* CHROME DUDE STYLING */
+.confirmation-chrome-guy {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9991;
+}
+
+/* CENTER PANEL STYLING */
+.confirmation-center-panel {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+
+    padding: 24px;
+
+    color: black;
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+    background-color: var(--light-purple);
+
+    box-shadow: 2px 3px 0 #000;
+    position: relative;
+    z-index: 9992;
+}
+
+.confirmation-header{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.error-message{
+    text-align: center;
+}
+
+.confirmation-no {
+    margin-top: 24px;
+}
+
+.confirmation-yes {
+    margin-top: 24px;
+}

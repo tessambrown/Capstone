@@ -1,0 +1,51 @@
+
+.chrome-guy {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.home-title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding-top: 275px;
+    padding-bottom: 0px;
+
+    color: var(--medium-purple);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 3px 4px 0 black;
+
+    font-size: var(--text-xxl);
+
+    paint-order: stroke fill;
+}
+
+/* STYLING CENTER PANEL */
+.center-panel-homepage {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+
+    padding: 24px;
+
+    color: black;
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+    background-color: var(--light-purple);
+
+    box-shadow: 2px 3px 0 #000;
+    position: relative;
+    z-index: 1;
+}
+
+.intro-text {
+    text-align: center;
+}
+
+.start-creating-btn {
+    margin-top: 8px;
+}

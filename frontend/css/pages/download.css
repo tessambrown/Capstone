@@ -1,0 +1,54 @@
+
+.chrome-guy {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.download-title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding-top: 275px;
+    padding-bottom: 0px;
+
+    color: var(--medium-purple);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 3px 4px 0 black;
+
+    font-size: var(--text-xl);
+    line-height: var(--height-xl);
+
+    paint-order: stroke fill;
+}
+
+/* STYLING CENTER PANEL */
+.center-panel-download {
+    
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+
+    padding: 24px;
+
+    color: black;
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+    background-color: var(--light-purple);
+
+    box-shadow: 2px 3px 0 #000;
+    position: relative;
+    z-index: 1;
+}
+
+.download-text {
+    text-align: center;
+    font-size: var(--text-s);
+}
+
+/* .start-over-btn {
+    margin-top: 24px;
+} */

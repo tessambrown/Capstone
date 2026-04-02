@@ -1,0 +1,160 @@
+
+/* NAV BAR STYLES */
+.wordmark {
+    color: var(--darkest-purple);
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+.back-button {
+    display: flex;
+    gap: 8px;
+}
+
+/* MIDDLE CHROME GUY STYLING */
+.chrome-guy {
+    position: absolute;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+/* CHROMEWAV TITLE STYLING */
+.selection-title {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding-top: 90px;
+    padding-bottom: 0px;
+
+    color: var(--medium-purple);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    paint-order: stroke fill;
+
+    font-size: var(--text-xxl);
+
+    text-shadow: 3px 4px 0 black;
+
+}
+
+/* CENTER PANEL STYLING */
+.center-panel-selection {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+
+    padding: 24px;
+
+    color: black;
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+    background-color: var(--light-purple);
+
+    box-shadow: 2px 3px 0 #000;
+
+    position: relative;
+    z-index: 1;
+    margin-bottom: 80px;
+    align-items: start;
+}
+
+/* INPUT STACK STYLING */
+.input-artist-title {
+    margin-top: 44px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.input-song-title {
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.input {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+}
+
+/* ARTIST INPUT ERROR */
+.artist-error {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.artist-error[hidden] {
+    display: none;
+}
+
+/* SONG INPUT ERROR */
+.song-error {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.song-error[hidden] {
+    display: none;
+}
+
+/* CANVAS BUTTON STYLING */
+.canvas-sizes-title {
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.canvas-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.canvas-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.phone {
+    margin-bottom: 16px;
+}
+
+.btn-icon {
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.poster-btn-icon {
+    width: 24px;
+    flex-shrink: 0;
+}
+
+/* CANVAS ERROR */
+.canvas-error {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.canvas-error[hidden] {
+    display: none;
+}
+
+.error-msg {
+    color: var(--red);
+}
+
+
+/* RECORD IMAGE STYLING */
+.record {
+    justify-self: center;
+    align-self: center;
+    margin-top: 36px;
+}
+
+/* GENERATE IMAGE BUTTON STYLING */
+.generate-button {
+    margin-top: 32px;
+}

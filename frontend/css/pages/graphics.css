@@ -1,0 +1,447 @@
+/* NAV ELEMENT STYLES */
+.nav-styles {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+}
+
+.logo-chrome-guy {
+    margin-bottom: 16px;
+}
+
+.back-button {
+    display: flex;
+    gap: 8px;
+}
+
+/*  IMAGE CONTAINER STYLE */
+.left-panel {
+    position: sticky;
+    top: 24px;
+    height: calc(100vh - 48px);
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    overflow: hidden;
+}
+
+#imageContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.image-wrapper {
+    width: 100%;
+    max-height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* UI CONTAINER STYLE */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    margin-top: 24px;
+
+    color: black;
+    border-radius: var(--border-radius);
+    border: 1px solid #000000;
+    background-color: var(--light-purple);
+
+    box-shadow: 2px 3px 0 #000;
+    margin-bottom: 24px;
+}
+
+/* FONT DROPDOWN STYLES */
+.font-dropdown-title {
+    margin-top: 16px;
+    margin-bottom: var(--margin-below);
+}
+
+.font-dropdown {
+    width: 100%;
+}
+
+.font-dropdown-header {
+    gap: 8px;
+}
+
+.font-dropdown-header:focus {
+    outline: none;
+}
+
+/* TEXT STYLING FOR LYRIC WINDOW */
+.lyric-text {
+    position: absolute;
+    word-wrap: break-word;
+    transition: font-size 0.1s ease;
+    box-sizing: border-box;
+    padding: 8px;
+    color: white;
+}
+
+/* lyrics displayed with the UX */
+.lyric-container-title {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--margin-below);
+}
+
+#lyricsContainer {
+    /* max-height: 600px; */
+    overflow-y: auto;
+
+    border: 1px solid #000;
+    /* padding: 16px; */
+    background: #FFF;
+
+    border-radius: var(--border-radius);
+    box-shadow: 2px 3px 0 #000;
+}
+
+.lyric-section {
+    /* margin-top: 16px;
+    margin-bottom: 24px; */
+    color: black;
+    pointer-events: none;
+
+    padding-top: 24px;
+    padding-bottom: 8px;
+
+    font-size: var(--text-m);
+    text-align: center;
+}
+
+.lyric-line {
+    padding: 8px 16px;
+    color: #000;
+    cursor: pointer;
+}
+
+.lyric-line:hover {
+    background: var(--medium-purple);
+    color: #000;
+}
+
+.lyric-selected {
+    background: var(--dark-purple);
+    color: white;
+}
+
+.lyric-placed {
+    background: var(--light-purple);
+    color: #000;
+}
+
+.lyric-content {
+    display: block;
+    width: 100%;
+    white-space: pre-line;
+}
+
+/* LYRIC ERROR MESSAGE */
+.lyric-error {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.lyric-error[hidden]{
+    display: none;
+}
+
+.error-msg {
+    color: var(--red);
+}
+
+/* CLEAR LYRICS STYLE */
+.clear-lyric-button {
+    margin-top: 24px;
+    margin-bottom: var(--margin-below);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+/* CLEARING ERROR MESSAGE */
+.clear-lyric-error {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.clear-lyric-error[hidden]{
+    display: none;
+}
+
+/* POSITION GRID STYLE */
+.position-grid-title {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--margin-below);
+}
+
+#positionGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#positionGrid button {
+    height: 72px;
+    background-color: white;
+
+    border: 1px solid #000;
+    box-shadow: 2px 3px 0 #000;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#positionGrid button:hover {
+    background-color: var(--medium-purple);
+}
+
+#positionGrid button.active {
+    background-image: url("../../assets/star.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 28px 28px;
+    background-color: white;
+}
+
+#positionGrid button:focus {
+    outline: none;
+}
+
+/* round corners of the positioning grid */
+.top-left {
+    border-top-left-radius: var(--border-radius);
+}
+
+.top-right {
+    border-top-right-radius: var(--border-radius);
+}
+
+.bottom-left {
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.bottom-right {
+    border-bottom-right-radius: var(--border-radius);
+}
+
+/* FULL GRID ERROR MESSAGE */
+.grid-full-error {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.grid-full-error[hidden]{
+    display: none;
+}
+
+/* POSITION FULL ERROR MESSAGE */
+.position-full-error {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.position-full-error[hidden]{
+    display: none;
+}
+
+/* SINGLE CELL ERROR MESSAGE */
+.single-cell-error {
+    display: flex;
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.single-cell-error[hidden]{
+    display: none;
+}
+/* TEXT SIZE STYLE */
+.text-size-label {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--below-s);
+}
+
+/* LINE SPACING STYLES */
+.line-spacing-label {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--below-s);
+}
+
+
+/* CASE CONTROL STYLE */
+.case-control-label {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--margin-below);
+}
+
+.case-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+}
+
+.case-controls button {
+    height: 52;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TEXT ALIGNMENT STYLE */
+.alignment-controls-label {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--margin-below);
+}
+
+.alignment-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+}
+
+.alignment-controls button {
+    height: 52;
+    align-items: center;
+    justify-content: center;
+}
+
+.align-btn-image {
+    width: 26px;
+}
+
+/* ROTATE TEXT STYLE */
+.rotate-text-label {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--below-s);
+}
+
+.rotate-icons {
+    width: 100%;
+    display: flex;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    justify-content: space-between;
+}
+
+/* TEXT COLOR STYLE  */
+.text-color-controls-label {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--margin-below);
+}
+
+.text-color-controls {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.text-color-controls button {
+    text-align: center;
+    height: 48px;
+    border-radius: var(--border-radius);
+    box-shadow: 2px 3px 0 #000;
+}
+
+.text-color-controls button:hover {
+    filter: brightness(80%);
+}
+
+/* TEXT OPACITY STYLE */
+.opacity-slider-label {
+    padding-top: var(--margin-above);
+    padding-bottom: var(--below-s);
+}
+
+/* STROKE DIV STYLES */
+.stroke-controls-wrapper {
+    overflow: visible;
+    width: 100%;
+}
+
+.stroke-controls-wrapper .slider {
+    width: 100%;
+    display: block;
+}
+
+/* STROKE WEIGHT STYLE */
+.stroke-slider-label {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--below-s);
+}
+
+/* STROKE COLOR STYLE */
+.stroke-color-controls-label {
+    margin-top: var(--margin-above);
+    margin-bottom: var(--margin-below);
+}
+
+.stroke-color-controls {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.stroke-color-controls button {
+    text-align: center;
+    height: 48px;
+    border-radius: var(--border-radius);
+    box-shadow: 2px 3px 0 #000;
+}
+
+.stroke-color-controls button:hover {
+    filter: brightness(80%);
+}
+
+/* STROKE OPACITY STYLE */
+.stroke-opacity-label {
+    margin-top: var(--margin-above);
+    margin-bottom: 8px;
+}
+
+/* IMAGE OPACITY STYLE */
+.image-opacity-label {
+    margin-top: var(--margin-above);
+    margin-bottom: 8px;    
+}
+
+/* styling for song + artist names */
+.name-text {
+    position: absolute;
+    font-size: var(--text-s);
+    padding: 8px;
+    box-sizing: border-box;
+    color: white;
+}
+
+/* TOGGLE STYLE */
+.toggle-wrapper {
+    display: flex;
+    margin-top: var(--margin-above);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.download-button {
+    margin-top: 72px;
+}
+
+/* GLOBAL STYLES USED MULTIPLE TIMES ON GRAPHICS PAGE */
+
+/* SLIDER ICON STYLES */
+.slider-icons {
+    width: 100%;
+    display: flex;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    justify-content: space-between;
+}

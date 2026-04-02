@@ -1,0 +1,218 @@
+/* GLOBAL STYLES */
+
+:root {
+    /* TEXT STYLES */
+    /* font families */
+    --font-primary: Groovezilla;
+    --font-secondary: Montserrat;
+
+
+    /* font sizes */
+    --text-xxl: 150px;
+    --text-xl: 88px;
+    --text-l: 32px;
+    --text-m: 24px;
+    --text-s: 18px;
+    --text-xs: 16px;
+
+    /* line heights */
+    --height-xl: 90px;
+    --height-l: 26px;
+    --height-m: 22px;
+    --height-s: 18px;
+
+    /* COLOR STYLES */
+    --dark-purple: #3B4176;
+    --medium-purple: #CCCCE6;
+    --light-purple: #F4F5FF;
+    --darkest-purple: #1B223A;
+    --red: #B93442;
+
+    /* UX STYLES */
+    --stroke-width: 1px;
+    --border-radius: 16px;
+    /* --margin-below: 24px; */
+    --margin-below: 16px;
+    --below-s: 8px;
+    --margin-above: 40px;
+}
+
+/* FONT STYLES */
+
+@font-face {
+    font-family: Groovezilla;
+    src: url("./fonts/DKS-GroovezillaPersonalUse-XEx copy.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("./fonts/Montserrat-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+/* LOAD FONTS FOR FONT MENU */
+@font-face {
+    font-family: Nova Sans;
+    src: url("./fonts/NovaSans-Regular.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Astro Sans;
+    src: url("./fonts/AstroSans-Regular.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Futura;
+    src: url("./fonts/Futura.ttc") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Bebas;
+    src: url("./fonts/BebasNeue-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Ethic New;
+    src: url("./fonts/ethicnew-regular.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Delicate;
+    src: url("./fonts/Delicate Caligraphy Demo.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Bubble;
+    src: url("./fonts/Super Bubble.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Midstar;
+    src: url("./fonts/midstar-q23j1.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Typewriter;
+    src: url("./fonts/veteran_typewriter.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Boxing;
+    src: url("./fonts/Boxing-Regular.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Blackletter;
+    src: url("./fonts/BLACEB__.TTF") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Neocosmic;
+    src: url("./fonts/Necosmic-PersonalUse-BF6575d8c68fd8b.otf") format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Pyrite;
+    src: url("./fonts/Pyrite.otf") format("opentype");
+    font-weight: normal;
+}
+
+/* assign each font to data-font */
+[data-font="Nova Sans"] {
+    font-family: "Nova Sans";
+}
+
+[data-font="Astro Sans"] {
+    font-family: "Astro Sans";
+}
+
+[data-font="futura"] {
+    font-family: "Futura";
+}
+
+[data-font="bebas"] {
+    font-family: "Bebas";
+}
+
+[data-font="ethic-new"] {
+    font-family: "Ethic New";
+}
+
+[data-font="delicate"] {
+    font-family: "Delicate";
+}
+
+[data-font="bubble"] {
+    font-family: "Bubble";
+}
+
+[data-font="midstar"] {
+    font-family: "Midstar";
+}
+
+[data-font="typewriter"] {
+    font-family: "Typewriter";
+}
+
+[data-font="boxing"] {
+    font-family: "Boxing";
+}
+
+[data-font="blackletter"] {
+    font-family: "Blackletter";
+}
+
+[data-font="neocosmic"] {
+    font-family: "Neocosmic";
+}
+
+[data-font="pyrite"] {
+    font-family: "Pyrite";
+}
+
+body {
+    font-family: var(--font-secondary);
+}
+
+h1 {
+    font-family: var(--font-primary);
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--font-primary);
+    font-size: var(--text-l);
+}
+
+p {
+    font-family: var(--font-secondary);
+    margin: 0;
+    line-height: var(--height-s);
+    font-size: var(--text-s);
+}
+
+input {
+    display: block; 
+}
+
+button {
+    cursor: pointer;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
