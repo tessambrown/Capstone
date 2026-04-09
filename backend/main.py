@@ -20,7 +20,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 registerErrorHandlers(app)
 
-CORS(app)
+CORS(app, origins=["http://chromewav.com/", "https://tessambrown.github.io"])
 # CORS(app, origins=["http://[::]:5050"])
 
 @app.route("/personlization", methods=["POST"])
