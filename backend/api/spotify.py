@@ -5,7 +5,12 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import requests
 import json
-from backend.errors import appError
+
+# For local deployment
+# from backend.errors import appError
+
+# For Render deployment
+from errors import appError
 
 # load environment variables
 load_dotenv()

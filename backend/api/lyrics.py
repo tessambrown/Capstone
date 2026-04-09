@@ -4,7 +4,12 @@ import difflib
 from dotenv import load_dotenv
 import os
 load_dotenv()
-from backend.errors import appError
+
+# For local deployment
+# from backend.errors import appError
+
+# For Render deployment
+from errors import appError
 
 # set the api key for the lyric genius API
 api_key = os.getenv("LYRIC_KEY")

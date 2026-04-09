@@ -1,11 +1,18 @@
-# import functions from other backend files
+# For local deployment
+# from backend.song_data.song_data import songMetadata
+# from backend.build.prompt_builder import getPrompt
+# from backend.api.request_image import APIFrameClient
+# from backend.api.fetch_image import fetchImage
+# from backend.song_data.helper_functions import validateInputs
+# from backend.errors import appError, registerErrorHandlers
 
-from backend.song_data.song_data import songMetadata
-from backend.build.prompt_builder import getPrompt
-from backend.api.request_image import APIFrameClient
-from backend.api.fetch_image import fetchImage
-from backend.song_data.helper_functions import validateInputs
-from backend.errors import appError, registerErrorHandlers
+# For Render deployment
+from song_data.song_data import songMetadata
+from build.prompt_builder import getPrompt
+from api.request_image import APIFrameClient
+from api.fetch_image import fetchImage
+from song_data.helper_functions import validateInputs
+from errors import appError, registerErrorHandlers
 
 # import other helpful elements
 from dotenv import load_dotenv

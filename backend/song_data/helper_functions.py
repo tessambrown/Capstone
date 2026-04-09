@@ -1,6 +1,10 @@
 # this file contains helper functions that I can use in other files
 import random
-from backend.errors import appError
+# For local deployment
+# from backend.errors import appError
+
+# For Render deployment
+from errors import appError
 
 def checkChar(text):
     return isinstance(text, str) and len(text.strip()) > 0

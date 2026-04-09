@@ -1,13 +1,22 @@
+# For local deployment
+# from backend.api.lyrics import getLyrics
+# from backend.song_data.helper_functions import getRatio
+# from backend.song_data.canvas_size import getSize
+# from backend.api.spotify import getTrackID, getTrackAnalysis, getAudioFeatures
+# from backend.song_data.loudness import getLoudness
+# from backend.song_data.key import getColors
+# from backend.song_data.color_contrast import getColorContrast, getPaletteContrast
+# from backend.errors import appError
 
-# import files for personlization 
-from backend.api.lyrics import getLyrics
-from backend.song_data.helper_functions import getRatio
-from backend.song_data.canvas_size import getSize
-from backend.api.spotify import getTrackID, getTrackAnalysis, getAudioFeatures
-from backend.song_data.loudness import getLoudness
-from backend.song_data.key import getColors
-from backend.song_data.color_contrast import getColorContrast, getPaletteContrast
-from backend.errors import appError
+# For Render deployment
+from api.lyrics import getLyrics
+from song_data.helper_functions import getRatio
+from song_data.canvas_size import getSize
+from api.spotify import getTrackID, getTrackAnalysis, getAudioFeatures
+from song_data.loudness import getLoudness
+from song_data.key import getColors
+from song_data.color_contrast import getColorContrast, getPaletteContrast
+from errors import appError
 
 # a class that stores all of the personlization variables
 class songData():

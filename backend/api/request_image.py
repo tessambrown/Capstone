@@ -1,6 +1,11 @@
 # This file takes in the prompt, calls the MJ API and request the image, returns the task ID
 import requests
-from backend.errors import appError
+
+# For local deployment
+# from backend.errors import appError
+
+# For Render deployment
+from errors import appError
 
 class APIFrameClient:
     def __init__(self, api_key):

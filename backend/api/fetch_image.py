@@ -4,7 +4,12 @@ import random
 import re
 from io import BytesIO
 from typing import List, Optional, Dict
-from backend.errors import appError
+
+# For local deployment
+# from backend.errors import appError
+
+# For Render deployment
+from errors import appError
 
 import requests
 from PIL import Image, ImageOps, ImageFilter, ImageEnhance

@@ -1,4 +1,9 @@
-from backend.errors import appError
+# For local deployment
+# from backend.errors import appError
+
+# For Render deployment
+from errors import appError
+
 # input the loudness and return colors, louder = more colors
 def getLoudness(loudness):
 
