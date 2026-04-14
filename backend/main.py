@@ -27,7 +27,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 registerErrorHandlers(app)
 
-CORS(app, origins=["http://chromewav.com/", "https://tessambrown.github.io"])
+CORS(app, origins=["http://chromewav.com", "https://tessambrown.github.io"])
 # CORS(app, origins=["http://[::]:5050"])
 
 @app.route("/personlization", methods=["POST"])
@@ -85,7 +85,7 @@ def personlization():
     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
 # for just the backend (use for testing)
 # def main():
