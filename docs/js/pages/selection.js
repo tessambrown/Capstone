@@ -106,7 +106,7 @@ export function initSelection() {
 
         // Fetch data from frontend
         try {
-            response = await fetch("http://127.0.0.1:5000/personlization", {
+            response = await fetch("https://capstone-nukm.onrender.com/personlization", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({artistInput, songInput, canvasInput})}
