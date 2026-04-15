@@ -1,8 +1,9 @@
 
-import lyricsgenius
+# import lyricsgenius
 import difflib
 from dotenv import load_dotenv
 import os
+import requests
 load_dotenv()
 
 # For local deployment
@@ -11,16 +12,16 @@ load_dotenv()
 # For Render deployment
 from errors import appError
 
-# set the api key for the lyric genius API
-api_key = os.getenv("LYRIC_KEY")
-genius = lyricsgenius.Genius(api_key)
-genius._session.headers.update({
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "Accept": "application/json",
-    "Accept-Language": "en-US,en;q=0.9"
-})
-genius.timeout = 10
-genius.retries = 1
+# # set the api key for the lyric genius API
+# api_key = os.getenv("LYRIC_KEY")
+# genius = lyricsgenius.Genius(api_key)
+# genius._session.headers.update({
+#     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+#     "Accept": "application/json",
+#     "Accept-Language": "en-US,en;q=0.9"
+# })
+# genius.timeout = 10
+# genius.retries = 1
 
 # helper function to return the similarity of two things
 def similarity(a, b):
@@ -123,78 +124,120 @@ def organizeSections(lyrics):
 # get the lyrics for the inputted song
 # this function drives all of the other functions
 def getLyrics(artists, song_title):
+    # Updated code
+    api_key = os.getenv("LYRIC_KEY")
+    artist_name = normalizeArtists(artists)[0]
+    
+    # Use the official Genius API search endpoint
+    headers = {"Authorization": f"Bearer {api_key}"}
+    search_url = "https://api.genius.com/search"
+    params = {"q": f"{song_title} {artist_name}"}
+    
+    try:
+        response = requests.get(search_url, headers=headers, params=params)
+        data = response.json()
+    except Exception as e:
+        print(f"Genius API error: {e}")
+        return None, None, None
 
-    # turns off status messages
-    genius.verbose = False
+    hits = data.get("response", {}).get("hits", [])
+    if not hits:
+        return None, None, None
 
-    # don't remove the section headers 
-    genius.remove_section_headers = False
+    best_score, best_song = findBestMatch(hits, song_title, [artist_name])
+    if not best_song:
+        return None, None, None
 
-    # normalized the artist input
-    artists = normalizeArtists(artists)
+    suggested_title = best_song["title"]
+    suggested_artist = best_song["primary_artist"]["name"]
+    
+    # Get lyrics from the song's URL path
+    song_path = best_song["path"]
+    lyrics_url = f"https://genius.com{song_path}"
+    
+    # Scrape the lyrics page
+    from bs4 import BeautifulSoup
+    page = requests.get(lyrics_url, headers={"User-Agent": "Mozilla/5.0"})
+    soup = BeautifulSoup(page.content, "html.parser")
+    containers = soup.find_all("div", attrs={"data-lyrics-container": "true"})
+    lyrics = "\n".join([c.get_text(separator="\n") for c in containers])
+    
+    sections = organizeSections(lyrics)
+    return sections, suggested_artist, suggested_title
+
+    # My code
+    # # turns off status messages
+    # genius.verbose = False
+
+    # # don't remove the section headers 
+    # genius.remove_section_headers = False
+
+    # # normalized the artist input
+    # artists = normalizeArtists(artists)
 
 
-    # try to search for each artist
-    for artist_name in artists:
-        print(f"Searching for: {song_title} by {artist_name}")
+    # # try to search for each artist
+    # for artist_name in artists:
+    #     print(f"Searching for: {song_title} by {artist_name}")
 
-        # combine the artist and the song title into one string
-        search_query = f"{song_title} {artist_name}"
+    #     # combine the artist and the song title into one string
+    #     search_query = f"{song_title} {artist_name}"
 
-        # returns the search result from the lyric genius API
-        try:
-            search_results = genius.search(search_query)
-        except Exception as e:
-            print(f"Search failed for {artist_name}: {e}")
-            continue
+    #     # returns the search result from the lyric genius API
+    #     try:
+    #         search_results = genius.search(search_query)
+    #     except Exception as e:
+    #         print(f"Search failed for {artist_name}: {e}")
+    #         continue
 
-        if search_results == {'hits': []}:
-            raise appError("Cannot find the song from the user input", 400)
+    #     if search_results == {'hits': []}:
+    #         raise appError("Cannot find the song from the user input", 400)
 
-        # if the API returns something unexpected
-        if not isinstance(search_results, dict):
-            continue
-        # top hits from the search results
-        hits = search_results.get("hits", [])
+    #     # if the API returns something unexpected
+    #     if not isinstance(search_results, dict):
+    #         continue
+    #     # top hits from the search results
+    #     hits = search_results.get("hits", [])
 
-        # if there isn't any hits try the next artist
-        if not hits:
-            continue
+    #     # if there isn't any hits try the next artist
+    #     if not hits:
+    #         continue
 
-        # find the best match of the hits
-        best_score, best_song = findBestMatch(hits, song_title, artists)
+    #     # find the best match of the hits
+    #     best_score, best_song = findBestMatch(hits, song_title, artists)
         
-        # if the song has a low confidence rate ask the user if the response is correct
-        if best_song and best_score < 0.1:
-            potential_title = best_song["title"]
-            potential_artist = best_song["primary_artist"]["name"]
+    #     # if the song has a low confidence rate ask the user if the response is correct
+    #     if best_song and best_score < 0.1:
+    #         potential_title = best_song["title"]
+    #         potential_artist = best_song["primary_artist"]["name"]
 
-            print(f"needs user confirmation: {potential_title} by {potential_artist}")
+    #         print(f"needs user confirmation: {potential_title} by {potential_artist}")
 
-            # send to main.py that confirmation is needed
-            return {
-                "needs_confirmation": True,
-                "potential_title": potential_title,
-                "potential_artist": potential_artist
-            }
+    #         # send to main.py that confirmation is needed
+    #         return {
+    #             "needs_confirmation": True,
+    #             "potential_title": potential_title,
+    #             "potential_artist": potential_artist
+    #         }
 
-        # if the top hit is close to the inputted value
-        if best_song and best_score > 0.1:
-            suggested_title = best_song["title"]
-            suggested_artist = best_song["primary_artist"]["name"]
+    #     # if the top hit is close to the inputted value
+    #     if best_song and best_score > 0.1:
+    #         suggested_title = best_song["title"]
+    #         suggested_artist = best_song["primary_artist"]["name"]
 
-            print(f"Best match: {suggested_title} by {suggested_artist}")
-            print(f"Match confidence: {round(best_score,2)}")
+    #         print(f"Best match: {suggested_title} by {suggested_artist}")
+    #         print(f"Match confidence: {round(best_score,2)}")
 
-            # search for the specfic song and get its lyrics
-            song = genius.search_song(suggested_title, suggested_artist)
+    #         # search for the specfic song and get its lyrics
+    #         song = genius.search_song(suggested_title, suggested_artist)
 
-            if song is None:
-                raise appError("Cannot find the song", 500)
+    #         if song is None:
+    #             raise appError("Cannot find the song", 500)
             
-            # organize the lyrics into sections
-            sections = organizeSections(song.lyrics)
-            return sections, suggested_artist, suggested_title
+    #         # organize the lyrics into sections
+    #         sections = organizeSections(song.lyrics)
+    #         return sections, suggested_artist, suggested_title
 
-    # if none of the artists worked 
-    return None, None, None
+    # # if none of the artists worked 
+    # return None, None, None
+
