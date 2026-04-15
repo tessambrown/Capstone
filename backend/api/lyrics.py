@@ -135,12 +135,14 @@ def getLyrics(artists, song_title):
     
     try:
         response = requests.get(search_url, headers=headers, params=params)
+        print("Genius API status:", response.status_code)
         data = response.json()
     except Exception as e:
         print(f"Genius API error: {e}")
         return None, None, None
 
     hits = data.get("response", {}).get("hits", [])
+    print("Hits found:", len(hits))
     if not hits:
         return None, None, None
 
@@ -150,6 +152,7 @@ def getLyrics(artists, song_title):
 
     suggested_title = best_song["title"]
     suggested_artist = best_song["primary_artist"]["name"]
+    print("Best match:", suggested_title, "by", suggested_artist)
     
     # Get lyrics from the song's URL path
     song_path = best_song["path"]
@@ -160,6 +163,7 @@ def getLyrics(artists, song_title):
     page = requests.get(lyrics_url, headers={"User-Agent": "Mozilla/5.0"})
     soup = BeautifulSoup(page.content, "html.parser")
     containers = soup.find_all("div", attrs={"data-lyrics-container": "true"})
+    print("Lyric containers found:", len(containers))
     lyrics = "\n".join([c.get_text(separator="\n") for c in containers])
     
     sections = organizeSections(lyrics)
