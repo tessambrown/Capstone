@@ -108,6 +108,7 @@ def songMetadata(name, song, canvas_choice):
 
         # sort through and return specfic audio features
         features = getAudioFeatures(new_song.track_analysis)
+        print("Features:", features)
 
         # set the song's features from getAudioFeatures() to the corresponding object
         new_song.key = features.get("key")
