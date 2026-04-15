@@ -160,16 +160,20 @@ def getLyrics(artists, song_title):
     
     # Scrape the lyrics page
     from bs4 import BeautifulSoup
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)...",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Referer": "https://www.google.com/"
-    }
+    # headers = {
+    #     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)...",
+    #     "Accept-Language": "en-US,en;q=0.9",
+    #     "Referer": "https://www.google.com/"
+    # }
 
-    page = requests.get(lyrics_url, headers=headers)
+    page = requests.get(lyrics_url, headers={
+        "User-Agent": "Mozilla/5.0"
+    })
 
-    print("Page status:", page.status_code)
-    print("Page preview:", page.text[:500])
+    print("=== PAGE DEBUG START ===")
+    print("Status:", page.status_code)
+    print("Preview:", page.text[:300])
+    print("=== PAGE DEBUG END ===")
 
     soup = BeautifulSoup(page.content, "html.parser")
     containers = soup.find_all("div", attrs={"data-lyrics-container": "true"})
