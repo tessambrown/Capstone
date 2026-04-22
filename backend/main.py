@@ -1,18 +1,18 @@
 # For local deployment
-# from backend.song_data.song_data import songMetadata
-# from backend.build.prompt_builder import getPrompt
-# from backend.api.request_image import APIFrameClient
-# from backend.api.fetch_image import fetchImage
-# from backend.song_data.helper_functions import validateInputs
-# from backend.errors import appError, registerErrorHandlers
+from backend.song_data.song_data import songMetadata
+from backend.build.prompt_builder import getPrompt
+from backend.api.request_image import APIFrameClient
+from backend.api.fetch_image import fetchImage
+from backend.song_data.helper_functions import validateInputs
+from backend.errors import appError, registerErrorHandlers
 
 # For Render deployment
-from song_data.song_data import songMetadata
-from build.prompt_builder import getPrompt
-from api.request_image import APIFrameClient
-from api.fetch_image import fetchImage
-from song_data.helper_functions import validateInputs
-from errors import appError, registerErrorHandlers
+# from song_data.song_data import songMetadata
+# from build.prompt_builder import getPrompt
+# from api.request_image import APIFrameClient
+# from api.fetch_image import fetchImage
+# from song_data.helper_functions import validateInputs
+# from errors import appError, registerErrorHandlers
 
 # import other helpful elements
 from dotenv import load_dotenv
@@ -27,8 +27,12 @@ from flask_cors import CORS
 app = Flask(__name__)
 registerErrorHandlers(app)
 
-CORS(app, origins=["http://chromewav.com", "https://tessambrown.github.io"])
+# CORS(app, origins=["http://chromewav.com", "https://tessambrown.github.io"])
 # CORS(app, origins=["http://[::]:5050"])
+CORS(app, origins=[
+    "http://localhost:5050",
+    "http://127.0.0.1:5050"
+])
 
 @app.route("/personlization", methods=["POST"])
 def personlization():
@@ -48,44 +52,124 @@ def personlization():
     # input user input and get song data
     user_data = songMetadata(artist_input, song_input, canvas_input)
 
-    # check if songMetadata needs confirmation
-    if isinstance(user_data, dict) and user_data.get("needs_confirmation"):
-        return jsonify(user_data), 202
+    lyrics = {
+    "Chorus": [
+        "Lorem ipsum dolor sit amet",
+        "Consectetur adipiscing elit nunc",
+        "Sed do eiusmod tempor incididunt",
+        "Ut labore et dolore magna aliqua",
+        "",
+        "Lorem ipsum dolor sit amet (Amet)",
+        "Consectetur adipiscing elit (Elit)",
+        "Sed do eiusmod tempor (Tempor)",
+        "Ut labore et dolore magna (Magna)",
+        "",
+        "Lorem ipsum dolor sit amet (Amet)",
+        "Consectetur adipiscing elit (Elit)",
+        "Sed do eiusmod tempor (Tempor)",
+        "Ut labore et dolore magna (Magna)",
+        ""
+    ],
+    "Verse 1": [
+        "Ut enim ad minim veniam",
+        "Quis nostrud exercitation ullamco",
+        "Laboris nisi ut aliquip ex ea",
+        "Commodo consequat duis aute",
+        ""
+    ],
+    "Post-Chorus": [
+        "Duis aute irure dolor",
+        "In reprehenderit voluptate velit",
+        "Esse cillum dolore eu fugiat",
+        "Nulla pariatur excepteur sint",
+        "Occaecat cupidatat non proident",
+        "Sunt in culpa qui officia",
+        "Deserunt mollit anim id est",
+        "Laborum lorem ipsum dolor",
+        "Duis aute irure dolor",
+        "In reprehenderit voluptate velit",
+        "Esse cillum dolore eu fugiat",
+        "Nulla pariatur excepteur sint",
+        "Occaecat cupidatat non proident",
+        "Sunt in culpa qui officia",
+        "Deserunt mollit anim id est",
+        "",
+        "Duis aute irure dolor",
+        "In reprehenderit voluptate velit",
+        "Esse cillum dolore eu fugiat",
+        "Nulla pariatur excepteur sint",
+        "Occaecat cupidatat non proident",
+        "Sunt in culpa qui officia",
+        "Deserunt mollit anim id est",
+        "Laborum lorem ipsum dolor",
+        "Duis aute irure dolor",
+        "In reprehenderit voluptate velit",
+        "Esse cillum dolore eu fugiat",
+        "Nulla pariatur excepteur sint",
+        "Occaecat cupidatat non proident",
+        "Sunt in culpa qui officia",
+        "Deserunt mollit anim id est",
+        ""
+    ],
+    "Verse 2": [
+        "Sed ut perspiciatis unde omnis",
+        "Iste natus error sit voluptatem",
+        "Accusantium doloremque laudantium",
+        "Totam rem aperiam eaque ipsa",
+        "Quae ab illo inventore veritatis",
+        "Et quasi architecto beatae vitae",
+        "Dicta sunt explicabo nemo enim",
+        "Ipsam voluptatem quia voluptas",
+        ""
+    ],
+    "Outro": [
+        "Quis autem vel eum iure",
+        "Reprehenderit qui in ea voluptate",
+        "Velit esse quam nihil molestiae",
+        "Consequatur vel illum qui dolorem"
+    ]
+    }
 
-    prompt = getPrompt(user_data)
-    if prompt is None:
-        raise appError("Failed to generate prompt", 500)
+    # # check if songMetadata needs confirmation
+    # if isinstance(user_data, dict) and user_data.get("needs_confirmation"):
+    #     return jsonify(user_data), 202
 
-    api_key = os.getenv("APIFRAME_KEY")
-    if not api_key:
-        raise appError("Missing API key", 500)
+    # prompt = getPrompt(user_data)
+    # if prompt is None:
+    #     raise appError("Failed to generate prompt", 500)
 
-    client = APIFrameClient(api_key)
+    # api_key = os.getenv("APIFRAME_KEY")
+    # if not api_key:
+    #     raise appError("Missing API key", 500)
 
-    # generate image and return the task id for the image
-    task_id = client.requestImage(prompt, user_data.ratio)
-    if task_id is None:
-        raise appError("Failed to generate image", 500)
+    # client = APIFrameClient(api_key)
+
+    # # generate image and return the task id for the image
+    # task_id = client.requestImage(prompt, user_data.ratio)
+    # if task_id is None:
+    #     raise appError("Failed to generate image", 500)
     
-    # send the api key and get fetch 
-    fetch = fetchImage(api_key)
-    image_link = fetch.getImage(task_id)
-    if image_link is None:
-        raise appError("Failed to get image link", 500)
-    
+    # # send the api key and get fetch 
+    # fetch = fetchImage(api_key)
+    # image_link = fetch.getImage(task_id)
+    # if image_link is None:
+    #     raise appError("Failed to get image link", 500)
+
+    image_link = "https://cdn.apiframe.pro/images/50332184479464980062320719635519-1.png"
+
     print("image link:", image_link)
     
     # return the image url + lyrics
     return jsonify({
         "imageUrl": image_link,
-        "lyrics": user_data.lyrics,
+        "lyrics": lyrics,
         "artist": user_data.artist,
         "song": user_data.song,
         "ratio": user_data.ratio
     })
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(debug=True)
 
 # for just the backend (use for testing)
 # def main():

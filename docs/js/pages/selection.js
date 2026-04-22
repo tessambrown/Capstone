@@ -74,6 +74,9 @@ export function initSelection() {
 
     button.addEventListener("click", async () => {
         // Grab user input
+
+        console.log("Storing user data and starting to call the backend!")
+
         let artistInput = document.getElementById("artistInput").value;
         let songInput = document.getElementById("songInput").value;
 
@@ -106,7 +109,7 @@ export function initSelection() {
 
         // Fetch data from frontend
         try {
-            response = await fetch("https://capstone-nukm.onrender.com/personlization", {
+            response = await fetch("http://127.0.0.1:5000/personlization", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({artistInput, songInput, canvasInput})}

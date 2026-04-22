@@ -895,7 +895,7 @@ export function initGraphic() {
     // Download the generated image + customized lyrics
     document.getElementById("downloadBtn").addEventListener("click", async () => {
         // Target the container that has the image + text
-        const container = document.getElementById("imageContainer");
+        const container = document.querySelector(".image-wrapper");
 
         const canvas = await html2canvas(container, {
             useCORS: true,

@@ -6,10 +6,10 @@ from io import BytesIO
 from typing import List, Optional, Dict
 
 # For local deployment
-# from backend.errors import appError
+from backend.errors import appError
 
 # For Render deployment
-from errors import appError
+# from errors import appError
 
 import requests
 from PIL import Image, ImageOps, ImageFilter, ImageEnhance

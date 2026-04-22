@@ -7,10 +7,10 @@ import requests
 import json
 
 # For local deployment
-# from backend.errors import appError
+from backend.errors import appError
 
 # For Render deployment
-from errors import appError
+# from errors import appError
 
 # load environment variables
 load_dotenv()

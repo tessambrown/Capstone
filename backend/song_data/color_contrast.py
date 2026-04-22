@@ -1,11 +1,11 @@
 from itertools import combinations
 # For local delpoyment
-# from backend.song_data.helper_functions import contrastRatio, randColor
-# from backend.errors import appError
+from backend.song_data.helper_functions import contrastRatio, randColor
+from backend.errors import appError
 
 # For Render deployment
-from song_data.helper_functions import contrastRatio, randColor
-from errors import appError
+# from song_data.helper_functions import contrastRatio, randColor
+# from errors import appError
 
 # The higher the energy the higher the contrast level
 def getColorContrast(energy):

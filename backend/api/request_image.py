@@ -2,10 +2,10 @@
 import requests
 
 # For local deployment
-# from backend.errors import appError
+from backend.errors import appError
 
 # For Render deployment
-from errors import appError
+# from errors import appError
 
 class APIFrameClient:
     def __init__(self, api_key):

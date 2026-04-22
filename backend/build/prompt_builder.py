@@ -1,10 +1,10 @@
 import random
 
 # For local deployment
-# from backend.errors import appError
+from backend.errors import appError
 
 # For Render deployment
-from errors import appError
+# from errors import appError
 
 # build a class to set variables used in the prompt
 class promptBuilder:

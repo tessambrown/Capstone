@@ -1,8 +1,8 @@
 # For local deployment
-# from backend.errors import appError
+from backend.errors import appError
 
 # For Render deployment
-from errors import appError
+# from errors import appError
 
 # class to store canvas info
 class Canvas:

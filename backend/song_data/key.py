@@ -1,10 +1,10 @@
 import json
 import os
 # For local deployment
-# from backend.errors import appError
+from backend.errors import appError
 
 # For Render deployment
-from errors import appError
+# from errors import appError
 
 # class to store the key and associated color palatte
 class keyToColor:
