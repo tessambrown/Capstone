@@ -1,5 +1,5 @@
 
-/* HERO SECTION */
+/* HERO SECTION STYLES*/
 .hero {
     position: relative;
     width: 100vw;
@@ -38,13 +38,6 @@
     z-index: 2;
 }
 
-.scroll-arrow span {
-    font-size: 11px;
-    color: var(--blue);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
 .arrow-circle {
     width: 36px;
     height: 36px;
@@ -60,3 +53,57 @@
     0%, 100% { transform: translateY(0); }
     50%       { transform: translateY(6px); }
 }
+
+/* INTRO SECTION STYLES */
+.intro {
+    background: var(--light-blue);
+    width: 100vw;
+    /* margin-left: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%); */
+}
+
+.names {
+    padding: 40px;
+}
+
+.pitch {
+    text-align: center;
+}
+
+.key-features-title {
+    margin-top: var(--space-above);
+    margin-bottom: var(--space-above);
+}
+
+.star-blob {
+    opacity: 0;
+    transform: translateY(-80px) rotate(-10deg);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.star-blob img {
+  width: 400px;
+  height: 402px;
+  object-fit: contain;
+  filter: drop-shadow(4px 6px 0px black);
+}
+
+.stars-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 cols instead of 3 */
+    gap: 24px;
+    max-width: 900px;
+    margin-left: 128px;
+    margin-right: 128px;
+    padding: 0 60px 120px 60px;
+}
+
+/* Top row: 3 stars spanning 2 cols each */
+.stars-grid .star-blob:nth-child(1) { grid-column: 1 / span 2; }
+.stars-grid .star-blob:nth-child(2) { grid-column: 3 / span 2; }
+.stars-grid .star-blob:nth-child(3) { grid-column: 5 / span 2; }
+
+/* Bottom row: 2 stars offset by 1 col to sit in the gaps */
+.stars-grid .star-blob:nth-child(4) { grid-column: 2 / span 2; }
+.stars-grid .star-blob:nth-child(5) { grid-column: 4 / span 2; }

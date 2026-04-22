@@ -55,9 +55,17 @@ h1 {
 h2 {
     font-family: var(--primary-font);
     font-size: var(--font-m);
+    line-height: 38px;
 }
 
 p {
     font-family: var(--primary-font);
     font-size: var(--font-s);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    max-width: 100%;
 }
