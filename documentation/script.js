@@ -50,3 +50,40 @@ window.addEventListener('scroll', () => {
         });
     }
 });
+
+// Carousel
+const track = document.getElementById('carouselTrack');
+const slides = track.querySelectorAll('.carousel-slide');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let current = 0;
+const visible = 3; // how many slides show at once
+const total = slides.length;
+
+function updateCarousel() {
+  const slideWidth = slides[0].offsetWidth + 24; // width + gap
+  track.style.transform = `translateX(-${current * slideWidth}px)`;
+
+  // disable buttons at the ends
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current >= total - visible;
+  prevBtn.style.opacity = prevBtn.disabled ? '0.3' : '1';
+  nextBtn.style.opacity = nextBtn.disabled ? '0.3' : '1';
+}
+
+nextBtn.addEventListener('click', () => {
+  if (current < total - visible) {
+    current++;
+    updateCarousel();
+  }
+});
+
+prevBtn.addEventListener('click', () => {
+  if (current > 0) {
+    current--;
+    updateCarousel();
+  }
+});
+
+updateCarousel();

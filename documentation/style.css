@@ -4,8 +4,8 @@
 
     /* font sizes */
     --font-l: 60px;
-    --font-m: 36px;
-    --font-s: 20px;
+    --font-m: 24px;
+    --font-s: 16px;
 
     /* color styles */
     --blue: #3B4176;
@@ -47,20 +47,28 @@
     font-weight: normal;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
     font-family: var(--primary-font);
     font-size: var(--font-l);
+    /* color: black; */
 }
 
 h2 {
     font-family: var(--primary-font);
     font-size: var(--font-m);
     line-height: 38px;
+    /* color: black; */
 }
 
 p {
     font-family: var(--primary-font);
     font-size: var(--font-s);
+    /* color: black; */
 }
 
 html, body {

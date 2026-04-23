@@ -36,6 +36,7 @@
     gap: 8px;
     padding: 8px 16px;
     z-index: 2;
+    animation: bounce 1.8s ease-in-out infinite;
 }
 
 .arrow-circle {
@@ -46,7 +47,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: bounce 1.8s ease-in-out infinite;
 }
 
 @keyframes bounce {
@@ -58,28 +58,20 @@
 .intro {
     background: var(--light-blue);
     width: 100vw;
-    /* margin-left: calc(-50vw + 50%);
-    padding-left: calc(50vw - 50%);
-    padding-right: calc(50vw - 50%); */
 }
 
 .names {
-    padding: 40px;
+    padding-top: 16px;
 }
 
 .pitch {
     text-align: center;
+    padding-top: 32px;
 }
 
 .key-features-title {
     margin-top: var(--space-above);
     margin-bottom: var(--space-above);
-}
-
-.star-blob {
-    opacity: 0;
-    transform: translateY(-80px) rotate(-10deg);
-    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .star-blob img {
@@ -96,7 +88,7 @@
     max-width: 900px;
     margin-left: 128px;
     margin-right: 128px;
-    padding: 0 60px 120px 60px;
+    padding: 0 60px 40px 60px;
 }
 
 /* Top row: 3 stars spanning 2 cols each */
@@ -107,3 +99,285 @@
 /* Bottom row: 2 stars offset by 1 col to sit in the gaps */
 .stars-grid .star-blob:nth-child(4) { grid-column: 2 / span 2; }
 .stars-grid .star-blob:nth-child(5) { grid-column: 4 / span 2; }
+
+/* DEMO SECTION STYLES */
+.demo-title{
+    padding-top: var(--space-above);
+    padding-bottom: 24px;
+}
+
+.demo video {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--space-below);
+}
+
+/* CAROUSEL STYLES */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.4s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 calc(33.333% - 16px); /* show 3 at a time */
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ARROW BUTTONS */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.carousel-controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid #333;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.carousel-controls button:hover {
+  background: rgba(0,0,0,0.06);
+}
+
+/* CHROMESTHESIA STYLES */
+.chrome-explination {
+    display: flex;
+    align-items: center;
+    gap: 120px;
+    padding-top: var(--space-above);
+}
+
+.chrome-explination img {
+    width: 50%;
+    flex-shrink: 0;
+}
+
+.chrome-explination-text {
+    flex: 1;
+}
+
+.chrome-explination-text h1 {
+    padding-bottom: 24px;
+}
+
+/* DESIGN DIRECTION STYLES */
+.design-direction-title {
+    text-align: center;
+    padding-top: var(--space-above);
+}
+
+.direction-card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 56px;
+}
+
+/* BRANDING SECTION */
+.branding-section {
+    display: flex;
+    align-items: center;    /* centers text with image stack */
+    gap: 120px;
+    padding-top: var(--space-above);
+    padding-left: 128px;    /* make sure it respects page margins */
+    padding-right: 128px;
+    margin-bottom: 104px;
+}
+.branding-text {
+    flex: 1;               /* text takes equal space to images */
+}
+
+.branding-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0;        /* remove the 80px padding */
+}
+
+.branding-image img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* UX SECTION */
+.ux-design-section {
+  background: var(--blue);
+  color: white;
+  padding: 80px 0;
+  width: 100%;
+  margin-left: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+
+.ux-design-section h2 {
+  color: white;
+  margin-bottom: 16px;
+}
+
+.ux-design-section p {
+  color: white;
+}
+
+.ux-wireframes {
+  display: flex;
+  gap: 0px;
+  align-items: center;
+}
+
+.wireframe-1 {
+    transform: rotate(-9deg);
+}
+
+.wireframe-2 {
+    transform: rotate(9deg);
+}
+
+/* TYPOGRAPHY SECTION STYLING */
+.typography-title {
+    text-align: center;
+    margin-top: 56px;
+    padding-bottom: 40px;
+}
+
+
+.typography-blurb {
+    margin-bottom: 56px;
+}
+
+.typeface-block {
+  padding-top: 56px;
+}
+
+.typeface-name {
+  text-align: center;
+  font-size: 120px;
+  color: var(--blue);
+  margin-bottom: 16px;
+  margin-left: 128px;
+  margin-right: 128px;
+}
+
+.typeface-description {
+  max-width: 800px;
+  margin-bottom: 40px;
+  margin-left: 128px;
+}
+
+/* Two-column specimen block */
+.typeface-specimen {
+  display: flex;
+  width: 100%;
+}
+
+/* Left: light purple, alphabet display */
+.specimen-left {
+  flex: 1;
+  background: #d4d0e8;
+  padding-top: 56px;
+  padding-bottom: 56px;
+  padding-right: 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Right: dark navy, large character */
+.specimen-right {
+  width: 50%;
+  background: #2d3a6b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.specimen-group {
+    margin-left: 128px;
+}
+
+.big-a {
+    text-align: center;
+    font-size: 600px;
+    line-height: 400px;
+    color: #FFF;
+}
+
+.specimen-label {
+  margin-bottom: 8px;
+}
+
+.specimen-rule {
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+  margin-bottom: 8px;
+}
+
+.specimen-letters {
+  font-size: 65px;
+  line-height: 67px;
+}
+
+.astro { font-family: 'Astro Sans', sans-serif; }
+.nova  { font-family: 'Nova Sans', sans-serif; }
+
+.product-title {
+    margin-top: var(--space-above);
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    padding-top: var(--space-above);
+    
+}
+
+.product-mockup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.product-mockup {
+    width: 583px;
+    object-fit: contain;
+}
+
+.product-title-mockup {
+    text-align: center;
+}
+
+/* VERSION STYLES */
+.version {
+    background: var(--blue);
+}

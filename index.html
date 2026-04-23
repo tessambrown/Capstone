@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="documentation/assets/favi.png">
+
     <title>ChromeWav</title>
 
     <link rel="stylesheet" href="documentation/style.css">
@@ -32,7 +34,7 @@
         <div class="page-grid">
             <p class="names start-1 col-12">Designed By: Arden Villanueva & Tessa Brown</p>
             <div class="start-1 col-12" style="width: 100%;">
-                <hr style="all: unset; display: block; width: 100%; height: 2px; background-color: #000; margin: 8px 0;">
+                <hr style="all: unset; display: block; width: 100%; height: 2px; background-color: #000;">
             </div>
             <h2 class="pitch start-1 col-12">ChromeWav is a web application that enables users to generate custom graphics based on the chosen song’s qualities, inspired by chromesthesia, blending sound and visual aesthetics. The poster can then be customized and downloaded, allowing each user to create a personalized visual expression of their music experience.</h2>
 
@@ -66,23 +68,171 @@
     <!-- Demo section -->
     <section class="demo">
         <div class="page-grid">
-            <h1>Demo</h1>
+            <h1 class="demo-title start-1 col-12">Demo</h1>
+
+            <div class="start-1 col-12">
+                <video controls width="100%">
+                    <source src="documentation/assets/demo video.mp4" type="video/mp4">
+                    Your browser does not support video.
+                </video>
+            </div>
+
+            <div class="carousel-container start-1 col-12">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide"><img src="documentation/assets/examples/E85-Don Toliver.png" alt="example output 1"></div>
+                    <div class="carousel-slide"><img src="documentation/assets/examples/Espresso-Sabrina Carpenter.png" alt="example output 2"></div>
+                    <div class="carousel-slide"><img src="documentation/assets/examples/LIGHTS GO OUT-John Summit.png" alt="example output 3"></div>
+                    <div class="carousel-slide"><img src="documentation/assets/examples/Porch Light-Noah Kahan.png" alt="example output 4"></div>
+                    <div class="carousel-slide"><img src="documentation/assets/examples/Sweet Boy-Malcolm Todd.png" alt="example output 5"></div>
+                </div>
+            </div>
+
+            <div class="carousel-controls start-1 col-12">
+                <button id="prevBtn" aria-label="Previous">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button id="nextBtn" aria-label="Next">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="chrome-explination start-1 col-12">
+                <div class="chrome-explination-text">
+                    <h1>Chromesthesia</h1>
+                    <p>ChromeWav explores chromesthesia: the phenomenon where sounds, such as music, speech, or everyday noises, involuntarily trigger the perception of color. Building on this idea, ChromeWav transforms music into a customizable visual design tool.</p>
+                </div>
+                <img src="documentation/assets/chromesthesia image.png" alt="Chromesthesia explination">
+            </div>
+
         </div>
     </section>
 
     <!-- Design direction section-->
     <section class="design-direction">
-
+        <div class="page-grid">
+            <h1 class="design-direction-title start-1 col-12">Design Direction</h1>
+        </div>
+        <img src="documentation/assets/design direction cards.png" class="direction-card" width="700">
     </section> 
+
+    <!-- Branding section -->
+    <section class="branding-section" id="branding">
+        <div class="branding-images">
+            <div class="branding-image"><img src="documentation/assets/logo+wordmark.png" alt="Logo"></div>
+            <div class="branding-image"><img src="documentation/assets/color palette.png" alt="Color palette"></div>
+        </div>
+        <div class="branding-text">
+            <h2>Branding</h2>
+            <p>For ChromeWav’s branding direction, we focused on what our audience is naturally drawn to: color, expression, and a sense of playfulness. We explored color and typography options and ultimately selected choices that felt fun and approachable while remaining user-friendly across the interface. To reinforce the sense of playfulness and to add personality to the system, we also introduced a mascot, chromio!</p>
+        </div>
+    </section>
+
+    <!-- UX Design Direction Section-->
+    <section class="ux-design-section" id="ux">
+        <div class="page-grid">
+            <div class="ux-text start-1 col-4">
+                <h1>UX</h1>
+                <p>For the UI/UX direction, we focused on translating our brand into a clear and engaging user experience. Our goal was to create a site that feels simple and intuitive while still embracing the colorful, playful energy of ChromeWav.</p>
+            </div>
+            <div class="ux-wireframes start-6 col-7">
+                <img src="documentation/assets/wireframe 1.jpeg" alt="Wireframe 1" width="364" class="wireframe-1">
+                <img src="documentation/assets/wireframe 2.jpeg" alt="Wireframe 2" width="364" class="wireframe-2">
+            </div>
+        </div>
+    </section>
 
     <!-- Typography section -->
     <section class="typography">
+        <div class="page-grid">
+            <!-- Intro blurb -->
+            <h1 class="typography-title start-1 col-12">Typography</h1>
+            <p class="typography-blurb start-1 col-12">For this project, we wanted to incorporate original design elements that users could interact with and customize in their own way. To support this, we created two custom typefaces that users can apply directly to the canvas when designing their poster.</p>
 
+            
+        </div>
+
+
+        <!-- Astro Sans -->
+        <div class="typeface-block">
+            <h1 class="typeface-name astro">Astro Sans</h1>
+            <p class="typeface-description">Astro Sans is playful and bubbly, aligning with the brand through its rounded cutouts and soft corners, giving it a friendly and expressive feel.</p>
+
+            <div class="typeface-specimen">
+            <div class="specimen-left">
+                <div class="specimen-group">
+                    <h2 class="specimen-label">Uppercase</h2>
+                    <hr class="specimen-rule">
+                    <p class="specimen-letters astro">ABCDEFGHIJKLM<br>NOPQRSTUVW<br>XYZ</p>
+                    </div>
+                    <div class="specimen-group">
+                    <h2 class="specimen-label">Lowercase</h2>
+                    <hr class="specimen-rule">
+                    <p class="specimen-letters astro">abcdefghijklmno<br>pqrstuvwxyz</p>
+                </div>
+            </div>
+            <div class="specimen-right">
+                <h2 class="big-a astro">A</h2>
+            </div>
+            </div>
+        </div>
+
+        <!-- Nova Sans -->
+        <div class="typeface-block">
+            <h1 class="typeface-name nova">Nova Sans</h1>
+            <p class="typeface-description">Nova Sans takes a more geometric approach, featuring cleaner shapes and circular counters to produce a more structured look.</p>
+
+            <div class="typeface-specimen">
+            <div class="specimen-left">
+                <div class="specimen-group">
+                <h2 class="specimen-label">Uppercase</h2>
+                <hr class="specimen-rule">
+                <p class="specimen-letters nova">ABCDEFGHIJKL<br>MNOPQRSTUV<br>WXYZ</p>
+                </div>
+                <div class="specimen-group">
+                <h2 class="specimen-label">Lowercase</h2>
+                <hr class="specimen-rule">
+                <p class="specimen-letters nova">abcdefghijklmno<br>pqrstuvwxyz</p>
+                </div>
+            </div>
+            <div class="specimen-right">
+                <h2 class="big-a nova">A</h2>
+            </div>
+            </div>
+        </div>
     </section>
 
     <!-- Product section -->
     <section class="product">
+        <div class="page-grid">
+            <h1 class="product-title start-1 col-12">Product Overview</h1>
 
+            <div class="product-grid start-1 col-12">
+                <div class="product-mockup-container">
+                    <img src="documentation/assets/homepage mockup.png" alt="Homepage mockup" class="product-mockup">
+                    <h2 class="product-title-mockup">Landing Page</h2>
+                </div>
+                <div class="product-mockup-container">
+                    <img src="documentation/assets/selection mockup.png" alt="Selection mockup" class="product-mockup">
+                    <h2 class="product-title-mockup">Landing Page</h2>
+                </div>
+                <div class="product-mockup-container">
+                    <img src="documentation/assets/graphic mockup.png" alt="Graphic mockup" class="product-mockup">
+                    <h2 class="product-title-mockup">Landing Page</h2>
+                </div>
+                <div class="product-mockup-container">
+                    <img src="documentation/assets/download mockup.png" alt="Download mockup" class="product-mockup">
+                    <h2 class="product-title-mockup">Landing Page</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="version">
+        
     </section>
 
     <!-- Frontend section -->
