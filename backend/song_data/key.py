@@ -42,7 +42,7 @@ THEORETICAL_KEY_MAP = {
         "B#": "C#",
         "Cb": "B",
         "Fb": "E",
-        "F#": "Gb",
+        "Gb": "F#",
     },
     "minor": {
         "E#": "F",
@@ -50,7 +50,10 @@ THEORETICAL_KEY_MAP = {
         "G#": "Ab",
         "Ab": "G#",
         "Db": "C#",
-        "D#": "Eb",
+        # "D#": "Eb",
+        "Eb": "D#",
+        "Gb": "F#",
+        "Bb": "A#",
     },
 }
 

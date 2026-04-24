@@ -458,103 +458,64 @@
 }
 
 /*  UI BREAKDOWN STYLES */
-/* USER CUSTOMIZATION SECTION */
-.user-customization {
-  padding-top: var(--space-above);
-  padding-bottom: var(--space-above);
+.user-cutomization-title{
+    padding-top: var(--space-above);
 }
 
-.customization-intro {
-  margin-bottom: 60px;
-  line-height: 1.6;
+.font-dropdown-container {
+    padding-top: 56px;
+    display: flex;
+    gap: 116px;
+    align-items: center;
 }
 
-/* Scrollytelling layout */
-.scrolly-container {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  min-height: 100vh;
-  overflow: visible;
+.font-dropdown-container-text h2{
+    padding-bottom: 24px;
 }
 
-/* Left text column */
-.scrolly-text {
-  width: 35%;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
+.lyric-window-container {
+    padding-top: 0px;
+    display: flex;
+    gap: 116px;
+    align-items: center;
 }
 
-.scrolly-step {
-  min-height: 40vh;         /* space between each text block */
-  display: flex;
-  align-items: center;
-  padding-right: 40px;
-  position: relative;
+.lyric-window-container-text h2 {
+    padding-bottom: 24px;
 }
 
-.scrolly-step p {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #999;              /* inactive steps are muted */
-  transition: color 0.3s ease;
+
+.lyric-placement-container {
+    padding-top: 0px;
+    display: flex;
+    gap: 116px;
+    align-items: center;
 }
 
-.scrolly-step.is-active p {
-  color: #000;              /* active step is full black */
+.lyric-placement-container-text h2{
+    padding-bottom: 24px;
 }
 
-/* Dot connector */
-.scrolly-step::after {
-  content: '';
-  position: absolute;
-  right: -6px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #ccc;
-  transition: background 0.3s ease;
+.text-customization-container {
+    padding-top: 0px;
+    display: flex;
+    gap: 116px;
+    align-items: center;
 }
 
-.scrolly-step.is-active::after {
-  background: var(--blue);
+.text-customization-container-text h2{
+    padding-bottom: 24px;
 }
 
-/* Horizontal line connecting dot to UI */
-.scrolly-step::before {
-  content: '';
-  position: absolute;
-  right: -40px;
-  top: 50%;
-  width: 40px;
-  height: 1px;
-  background: #ccc;
-  transition: background 0.3s ease;
+.download-container {
+    padding-top: 24px;
+    display: flex;
+    gap: 116px;
+    align-items: center;
 }
 
-.scrolly-step.is-active::before {
-  background: var(--blue);
-}
-
-/* Right sticky visual */
-.scrolly-visual {
-  width: 50%;        /* smaller */
-  margin-left: auto; /* pushes it to the right */
-  flex-shrink: 0;
-}
-
-.scrolly-sticky {
-  position: sticky;
-  top: 80px;
-  align-self: flex-start;
-}
-
-.ui-screenshot {
-  width: 80%;
-  object-fit: contain;
+.download-container-text h2 {
+    padding-bottom: 24px;
 }
 
 /* BACKEND BREAKDOWN STYLES */
