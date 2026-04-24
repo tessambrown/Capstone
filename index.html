@@ -232,22 +232,189 @@
     </section>
 
     <section class="version">
-        
+        <div class="page-grid">
+
+            <div class="versions-grid start-1 col-12">
+
+                <!-- Version 1 -->
+                <div class="version-block">
+                    <h2 class="version-title">Version 1</h2>
+                    <hr class="version-rule">
+                    <p class="version-description">To make the generated graphics stand out from the rest of the UI, we designed the interface to be simple with minimal colors.</p>
+                    <div class="version-slideshow" data-index="0">
+                        <img src="documentation/assets/versions/Home Page V1.png" alt="Version 1 Home">
+                        <img src="documentation/assets/versions/Selection V1.png" alt="Version 1 Selection">
+                        <img src="documentation/assets/versions/Graphic V1.png" alt="Version 1 Graphic">
+                        <img src="documentation/assets/versions/Download V1.png" alt="Version 1 Download">
+                    </div>
+                </div>
+
+                <!-- Version 2 -->
+                <div class="version-block">
+                    <h2 class="version-title">Version 2</h2>
+                    <hr class="version-rule">
+                    <p class="version-description">While still keeping the design simple, we added minimal amounts of color and added more customization options on the graphics page to provide more user freedom.</p>
+                    <div class="version-slideshow" data-index="0">
+                        <img src="documentation/assets/versions/Home Page V2.png" alt="Version 2 Home">
+                        <img src="documentation/assets/versions/Selection V2.png" alt="Version 2 Selection">
+                        <img src="documentation/assets/versions/Loading screen V2.png" alt="Version 2 Loading">
+                        <img src="documentation/assets/versions/Graphic V2.png" alt="Version 2 Graphic">
+                        <img src="documentation/assets/versions/Download V2.png" alt="Version 2 Download">
+                    </div>
+                </div>
+
+                <!-- Version 3 -->
+                <div class="version-block">
+                    <h2 class="version-title">Version 3</h2>
+                    <hr class="version-rule">
+                    <p class="version-description">To enhance communication between the site and our users, we implemented loading screens to provide visual feedback, and we continued to develop the graphics page UI.</p>
+                    <div class="version-slideshow" data-index="0">
+                        <img src="documentation/assets/versions/Home Page V3.png" alt="Version 3 Home">
+                        <img src="documentation/assets/versions/Selection V3.png" alt="Version 3 Selection">
+                        <img src="documentation/assets/versions/Loading screen V3.png" alt="Version 3 Loading">
+                        <img src="documentation/assets/versions/Graphic V3.png" alt="Version 3 Graphic">
+                        <img src="documentation/assets/versions/Download V3.png" alt="Version 3 Download">
+                    </div>
+                </div>
+
+                <!-- Version 4 -->
+                <div class="version-block">
+                    <h2 class="version-title">Version 4</h2>
+                    <hr class="version-rule">
+                    <p class="version-description">For the final version, we added another color to the interface and changed the layout to ensure that the full generated graphic on the graphics page is the first thing the user sees and is the main focus.</p>
+                    <div class="version-slideshow" data-index="0">
+                        <img src="documentation/assets/versions/Home Page V4.png" alt="Version 4 Home">
+                        <img src="documentation/assets/versions/Selection V4.png" alt="Version 4 Selection">
+                        <img src="documentation/assets/versions/Loading screen V4.png" alt="Version 4 Loading">
+                        <img src="documentation/assets/versions/Graphic V4.png" alt="Version 4 Graphic">
+                        <img src="documentation/assets/versions/Download V4.png" alt="Version 4 Download">
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <!-- Frontend section -->
     <section class="frontend">
+        <div class="page-grid">
+            <h1 class="frontend-title start-1 col-12">The Frontend</h1>
 
+            <div class="user-input start-1 col-12">
+                <img src="documentation/assets/frontend diagram.png" height="180" alt="Frontend system diagram">
+
+                <div class="backend-text">
+                    <h2>User Input</h2>
+                    <p>Users begin by selecting a song and choosing from predefined canvas sizes. This input is sent to the backend, where the generation process begins.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="user-customization" id="user-customization">
+            <div class="page-grid">
+                <h2 class="start-1 col-12">User Customization</h2>
+                <p class="customization-intro start-1 col-5">Once the image is generated, users can refine their design using interactive tools—transforming the output into a personalized composition.</p>
+
+                <!-- Scrollytelling container -->
+                <div class="scrolly-container start-1 col-12">
+
+                <!-- Left: sticky text blocks -->
+                <div class="scrolly-text">
+                    <div class="scrolly-step" data-step="0">
+                    <p>Users can choose from a range of type styles based on mood rather than name, making the selection process more intuitive and expressive.</p>
+                    </div>
+                    <div class="scrolly-step" data-step="1">
+                    <p>Lyrics are displayed in clearly separated sections, allowing users to quickly scan and select the part of the song they want to feature.</p>
+                    </div>
+                    <div class="scrolly-step" data-step="2">
+                    <p>After selecting a lyric section, users can place it anywhere on the canvas using a simple grid system that maps directly to the composition.</p>
+                    </div>
+                    <div class="scrolly-step" data-step="3">
+                    <p>To balance flexibility with simplicity, users can enhance their text with subtle styling options, such as adding a stroke for improved contrast and readability.</p>
+                    </div>
+                    <div class="scrolly-step" data-step="4">
+                    <p>When the design is complete, users can export their final poster as a high-quality PNG.</p>
+                    </div>
+                </div>
+
+                <!-- Right: sticky UI screenshot -->
+                <div class="scrolly-visual">
+                    <div class="scrolly-sticky">
+                    <img src="documentation/assets/UI Screenshot.png" alt="User customization UI" class="ui-screenshot" width="432">
+                    <!-- Dot indicator -->
+                    <div class="scrolly-dot"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <!-- Backend section -->
     <section class="backend">
+        <div class="page-grid">
+            <h1 class="backend-title start-1 col-12">The Backend</h1>
 
+            <h2 class="user-input-title start-1 col-12">User Input From Frontend</h2>
+            <img src="documentation/assets/user input.png" height="83" alt="User Input Diagram" class="user-input-diagram start-1 col-12">
+            
+            <div class="lyrics-container start-1 col-12">
+                <div class="lyrics-container-text">
+                    <h2>Lyrics</h2>
+                    <p>The system uses the selected song and artist to retrieve lyrics, then organizes them by section. This allows the frontend to present lyrics in a structured, easy-to-navigate format.</p>
+                </div>
+                <img src="documentation/assets/lyrics.png" height="80" alt="Lyrics Diagram">
+            </div>
+
+            <div class="canvas-ratio-container start-1 col-12">
+                <div class="canvas-container-text">
+                    <h2>Canvas Ratio</h2>
+                    <p>To ensure the generated image displays correctly, the selected canvas size is translated into an aspect ratio that defines the final layout.</p>
+                </div>
+                <img src="documentation/assets/canvas ratio.png" height="75" alt="Canvas Ratio Diagram">
+            </div>
+
+            <h2 class="building-prompt-diagram-title start-1 col-12">Translating the Song for the Prompt</h2>
+            <img src="documentation/assets/prompt building diagram.png" class="building-prompt-diagram col-12" alt="Building the Prompt Diagram">
+
+            <div class="random-variable-container start-1 col-12">
+                <div class="random-variable-container-text">
+                    <h2>Random Variables</h2>
+                    <p>To keep each result unique, the system introduces random variations into every generation. Even with the same song, no two images are exactly the same.</p>
+                </div>
+                <img src="documentation/assets/random variables.png" height="75" alt="Random Variable Diagram">
+            </div>
+            
+            <h2 class="prompt-title">Prompt</h2>
+            <img src="documentation/assets/prompt.png" alt="Prompt Diagram" class="prompt-diagram start-1 col-12">
+            <img src="documentation/assets/output diagram.png" alt="Output Diagram" class="prompt-output-diagram start-1 col-12">
+
+            <h2 class="example-outputs-title start-1 col-12">Example Outputs</h2>
+            <div class="example-outputs-container start-1 col-12">
+                <div class="example-outputs-container-left">
+                    <img src="documentation/assets/Espresso.png" alt="Espresso Example Image">
+                    <h2>Espresso by Sabrina Carpenter</h2>
+                </div>
+                <div class="example-outputs-container-left">
+                    <img src="documentation/assets/The Spins.png" alt="The Spins Example">
+                    <h2>The Spins by Mac Miller </h2>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Conclusion -->
     <section class="conclusion">
-
+        <div class="page-grid">
+            <div class="conclusion-text start-1 col-4">
+                <h1>Conclusion</h1>
+                <p>This project explores chromesthesia as both an inspiration and a foundation for creation, turning music into a form of visual expression. At its core, ChromeWav is about making someone's music taste into something personal, expressive, and shareable.</p>
+            </div>
+            <div class="conclusion-mockups start-5 col-7">
+                <img src="documentation/assets/Conclusion Mockup.png" alt="Download Screen Mockup" class="conclusion-donwload">
+                <img src="documentation/assets/Conclusion Mockup 2.png" alt="Home Screen Mockup" class="conclusion-home">
+            </div>
+        </div>
     </section> 
 
     <script type="module" src="documentation/script.js"></script>

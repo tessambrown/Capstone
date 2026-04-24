@@ -380,4 +380,311 @@
 /* VERSION STYLES */
 .version {
     background: var(--blue);
+    width: 100%;
+    margin-left: calc(-50vw + 50%);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+    padding-top: 32px;
+    padding-bottom: 56px;
+}
+
+.versions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 40px;
+  margin-top: 40px;
+}
+
+.version-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.version-title {
+  color: white;
+  text-align: center;
+}
+
+.version-rule {
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.version-description {
+  color: white;
+  height: 100px;
+
+}
+
+/* Slideshow */
+.version-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.version-slideshow img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* First image visible by default */
+.version-slideshow img:first-child {
+  opacity: 1;
+}
+
+/* FRONTEND SECTION TITLE */
+.frontend-title {
+    padding-top: var(--space-above);
+    padding-bottom: 56px;
+    text-align: center;
+}
+
+.user-input {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+/*  UI BREAKDOWN STYLES */
+/* USER CUSTOMIZATION SECTION */
+.user-customization {
+  padding-top: var(--space-above);
+  padding-bottom: var(--space-above);
+}
+
+.customization-intro {
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+/* Scrollytelling layout */
+.scrolly-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow: visible;
+}
+
+/* Left text column */
+.scrolly-text {
+  width: 35%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.scrolly-step {
+  min-height: 40vh;         /* space between each text block */
+  display: flex;
+  align-items: center;
+  padding-right: 40px;
+  position: relative;
+}
+
+.scrolly-step p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #999;              /* inactive steps are muted */
+  transition: color 0.3s ease;
+}
+
+.scrolly-step.is-active p {
+  color: #000;              /* active step is full black */
+}
+
+/* Dot connector */
+.scrolly-step::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  transition: background 0.3s ease;
+}
+
+.scrolly-step.is-active::after {
+  background: var(--blue);
+}
+
+/* Horizontal line connecting dot to UI */
+.scrolly-step::before {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: #ccc;
+  transition: background 0.3s ease;
+}
+
+.scrolly-step.is-active::before {
+  background: var(--blue);
+}
+
+/* Right sticky visual */
+.scrolly-visual {
+  width: 50%;        /* smaller */
+  margin-left: auto; /* pushes it to the right */
+  flex-shrink: 0;
+}
+
+.scrolly-sticky {
+  position: sticky;
+  top: 80px;
+  align-self: flex-start;
+}
+
+.ui-screenshot {
+  width: 80%;
+  object-fit: contain;
+}
+
+/* BACKEND BREAKDOWN STYLES */
+.backend-title {
+    padding-top: var(--space-above);
+    text-align: center;
+}
+
+.user-input-title {
+    padding-top: 56px;
+    padding-bottom: 16px;
+    color: #000;
+}
+
+.user-input-diagram {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.lyrics-container {
+    padding-top: var(--space-above);
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.lyrics-container-text h2{
+    padding-bottom: 32px;
+}
+
+.canvas-ratio-container {
+    padding-top: var(--space-above);
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.building-prompt-diagram-title {
+    padding-top: var(--space-above);
+    padding-bottom: 32px;
+}
+
+.building-prompt-diagram {
+    width: 100%;
+}
+
+.random-variable-container {
+    padding-top: var(--space-above);
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.random-variable-container h2{
+    padding-bottom: 32px;
+}
+
+.prompt-title {
+    padding-top: var(--space-above);
+    padding-bottom: 24px;
+}
+
+.prompt-diagram {
+    width: 100%;
+}
+
+.prompt-output-diagram {
+    padding-top: 32px;
+    width: 100%;
+}
+
+.example-outputs-title {
+    padding-top: var(--space-above);
+    padding-bottom: 24px;
+}
+
+.example-outputs-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.example-outputs-container-left img{
+    height: 584px;
+}
+
+.example-outputs-container-left h2{
+    text-align: center;
+    padding-top: 8px;
+}
+
+.example-outputs-container-right img{
+    height: 584px;
+}
+
+.example-outputs-container-right h2{
+    text-align: center;
+    padding-top: 8px;
+}
+
+.conclusion .page-grid {
+    padding-top: var(--space-above);
+    align-items: center;
+}
+
+.conclusion-text h1 {
+    padding-bottom: 24px;
+}
+
+.conclusion-mockups {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.conclusion-donwload {
+    width: 600px;
+    object-fit: contain;
+    position: relative;
+    top: -50px;
+    z-index: 2;       /* sits on top */
+}
+
+.conclusion-home {
+    width: 600px;
+    object-fit: contain;
+    position: absolute;
+    left: 200px;      /* nudge this to control how much overlap */
+    top: -40px;       /* nudge this to match the tilted offset in the design */
+    z-index: 1;       /* sits behind */
 }

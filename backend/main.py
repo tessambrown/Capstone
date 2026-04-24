@@ -6,14 +6,6 @@ from backend.api.fetch_image import fetchImage
 from backend.song_data.helper_functions import validateInputs
 from backend.errors import appError, registerErrorHandlers
 
-# For Render deployment
-# from song_data.song_data import songMetadata
-# from build.prompt_builder import getPrompt
-# from api.request_image import APIFrameClient
-# from api.fetch_image import fetchImage
-# from song_data.helper_functions import validateInputs
-# from errors import appError, registerErrorHandlers
-
 # import other helpful elements
 from dotenv import load_dotenv
 import os
@@ -52,124 +44,44 @@ def personlization():
     # input user input and get song data
     user_data = songMetadata(artist_input, song_input, canvas_input)
 
-    lyrics = {
-    "Chorus": [
-        "Lorem ipsum dolor sit amet",
-        "Consectetur adipiscing elit nunc",
-        "Sed do eiusmod tempor incididunt",
-        "Ut labore et dolore magna aliqua",
-        "",
-        "Lorem ipsum dolor sit amet (Amet)",
-        "Consectetur adipiscing elit (Elit)",
-        "Sed do eiusmod tempor (Tempor)",
-        "Ut labore et dolore magna (Magna)",
-        "",
-        "Lorem ipsum dolor sit amet (Amet)",
-        "Consectetur adipiscing elit (Elit)",
-        "Sed do eiusmod tempor (Tempor)",
-        "Ut labore et dolore magna (Magna)",
-        ""
-    ],
-    "Verse 1": [
-        "Ut enim ad minim veniam",
-        "Quis nostrud exercitation ullamco",
-        "Laboris nisi ut aliquip ex ea",
-        "Commodo consequat duis aute",
-        ""
-    ],
-    "Post-Chorus": [
-        "Duis aute irure dolor",
-        "In reprehenderit voluptate velit",
-        "Esse cillum dolore eu fugiat",
-        "Nulla pariatur excepteur sint",
-        "Occaecat cupidatat non proident",
-        "Sunt in culpa qui officia",
-        "Deserunt mollit anim id est",
-        "Laborum lorem ipsum dolor",
-        "Duis aute irure dolor",
-        "In reprehenderit voluptate velit",
-        "Esse cillum dolore eu fugiat",
-        "Nulla pariatur excepteur sint",
-        "Occaecat cupidatat non proident",
-        "Sunt in culpa qui officia",
-        "Deserunt mollit anim id est",
-        "",
-        "Duis aute irure dolor",
-        "In reprehenderit voluptate velit",
-        "Esse cillum dolore eu fugiat",
-        "Nulla pariatur excepteur sint",
-        "Occaecat cupidatat non proident",
-        "Sunt in culpa qui officia",
-        "Deserunt mollit anim id est",
-        "Laborum lorem ipsum dolor",
-        "Duis aute irure dolor",
-        "In reprehenderit voluptate velit",
-        "Esse cillum dolore eu fugiat",
-        "Nulla pariatur excepteur sint",
-        "Occaecat cupidatat non proident",
-        "Sunt in culpa qui officia",
-        "Deserunt mollit anim id est",
-        ""
-    ],
-    "Verse 2": [
-        "Sed ut perspiciatis unde omnis",
-        "Iste natus error sit voluptatem",
-        "Accusantium doloremque laudantium",
-        "Totam rem aperiam eaque ipsa",
-        "Quae ab illo inventore veritatis",
-        "Et quasi architecto beatae vitae",
-        "Dicta sunt explicabo nemo enim",
-        "Ipsam voluptatem quia voluptas",
-        ""
-    ],
-    "Outro": [
-        "Quis autem vel eum iure",
-        "Reprehenderit qui in ea voluptate",
-        "Velit esse quam nihil molestiae",
-        "Consequatur vel illum qui dolorem"
-    ]
-    }
+    # check if songMetadata needs confirmation
+    if isinstance(user_data, dict) and user_data.get("needs_confirmation"):
+        return jsonify(user_data), 202
 
-    # # check if songMetadata needs confirmation
-    # if isinstance(user_data, dict) and user_data.get("needs_confirmation"):
-    #     return jsonify(user_data), 202
+    prompt = getPrompt(user_data)
+    if prompt is None:
+        raise appError("Failed to generate prompt", 500)
 
-    # prompt = getPrompt(user_data)
-    # if prompt is None:
-    #     raise appError("Failed to generate prompt", 500)
+    api_key = os.getenv("APIFRAME_KEY")
+    if not api_key:
+        raise appError("Missing API key", 500)
 
-    # api_key = os.getenv("APIFRAME_KEY")
-    # if not api_key:
-    #     raise appError("Missing API key", 500)
+    client = APIFrameClient(api_key)
 
-    # client = APIFrameClient(api_key)
-
-    # # generate image and return the task id for the image
-    # task_id = client.requestImage(prompt, user_data.ratio)
-    # if task_id is None:
-    #     raise appError("Failed to generate image", 500)
+    # generate image and return the task id for the image
+    task_id = client.requestImage(prompt, user_data.ratio)
+    if task_id is None:
+        raise appError("Failed to generate image", 500)
     
-    # # send the api key and get fetch 
-    # fetch = fetchImage(api_key)
-    # image_link = fetch.getImage(task_id)
-    # if image_link is None:
-    #     raise appError("Failed to get image link", 500)
-
-    image_link = "https://cdn.apiframe.pro/images/50332184479464980062320719635519-1.png"
+    # send the api key and get fetch 
+    fetch = fetchImage(api_key)
+    image_link = fetch.getImage(task_id)
+    if image_link is None:
+        raise appError("Failed to get image link", 500)
 
     print("image link:", image_link)
     
     # return the image url + lyrics
     return jsonify({
         "imageUrl": image_link,
-        "lyrics": lyrics,
+        "lyrics": user_data.lyrics,
         "artist": user_data.artist,
         "song": user_data.song,
         "ratio": user_data.ratio
     })
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
 
 # for just the backend (use for testing)
 # def main():

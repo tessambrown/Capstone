@@ -87,3 +87,45 @@ prevBtn.addEventListener('click', () => {
 });
 
 updateCarousel();
+
+// Auto-cycling slideshows
+const slideshows = document.querySelectorAll('.version-slideshow');
+
+slideshows.forEach(slideshow => {
+  const images = slideshow.querySelectorAll('img');
+  let current = 0;
+
+  setInterval(() => {
+    images[current].style.opacity = '0';
+    current = (current + 1) % images.length;
+    images[current].style.opacity = '1';
+  }, 5000); // changes every 2.5 seconds — adjust as needed
+});
+
+// Scrollytelling — user customization section
+const steps = document.querySelectorAll('.scrolly-step');
+
+const stepObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Deactivate all steps
+      steps.forEach(s => s.classList.remove('is-active'));
+      // Activate the current one
+      entry.target.classList.add('is-active');
+    }
+  });
+}, {
+  rootMargin: '-40% 0px -40% 0px', // triggers when step is in the middle of the viewport
+  threshold: 0
+});
+
+steps.forEach(step => stepObserver.observe(step));
+
+let el = document.querySelector('.scrolly-sticky');
+while (el) {
+  const style = window.getComputedStyle(el);
+  if (style.overflow !== 'visible') {
+    console.log('clipping ancestor:', el, style.overflow);
+  }
+  el = el.parentElement;
+}
